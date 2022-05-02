@@ -1,2 +1,5 @@
+// all the node modules
 node_modules/
+
+// environment variables
 .env
