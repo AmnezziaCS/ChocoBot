@@ -7,7 +7,7 @@ module.exports = {
     execute(client, message, args) {
         message.channel.send({
             files: [{
-                attachment: './meilleurmove.mp4',
+                attachment: './media/meilleurmove.mp4',
                 name: 'meilleurmove.mp4'
             }]
         })
