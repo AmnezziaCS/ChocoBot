@@ -17,9 +17,8 @@ module.exports = {
                 .setTitle('ChocoBall')
                 .setDescription("La ChocoBall magique vous permez d'avoir la réponse magique à votre question <:YEP:800841093515444244>")
                 .addFields(
-                    { name: '`!c hocoBall [question ?]`', value: "Donnera la réponse à votre question, n'oubliez pas le point d'interrogation !" },
+                    { name: '`c!hocoBall [question ?]`', value: "Donnera la réponse à votre question, n'oubliez pas le point d'interrogation !" },
                 )
-                .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
             message.reply({ embeds: [chocoballHowEmbed] });
         } else {
             const ballChoice = getRandomInt(9);

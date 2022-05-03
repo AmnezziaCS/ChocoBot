@@ -25,9 +25,8 @@ module.exports = {
                     .setTitle(`Bet`)
                     .setDescription("La commande bet vous permet de miser une somme d'argent pour espérer en récupérer le double. ceci dit, faites attention à ne pas perdre votre mise !")
                     .setFields(
-                        { name: '`!c bet [valeur en ChocoCoins]`', value: "Si votre solde de ChocoCoins est insuffisant par rapport à votre mise, vous ne pourrez effectuer la commande !" },
+                        { name: '`c!bet [valeur en ChocoCoins]`', value: "Si votre solde de ChocoCoins est insuffisant par rapport à votre mise, vous ne pourrez effectuer la commande !" },
                     )
-                    .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                 return message.channel.send({ embeds: [betExplanationsEmbed] });
             } else {
                 if (betValue >= 0) {
@@ -48,7 +47,6 @@ module.exports = {
                                 .setFields(
                                     { name: `Votre compte à été crédité de ${betValue} ChocoCoins, votre nouveau montant de ChocoCoins est : `, value: `${profileData.chococoins + parseInt(betValue)} ©` },
                                 )
-                                .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                             message.channel.send({ embeds: [accountIncreasedByBetEmbed] });
                         } else {
                             const balanceUpdate = await ProfileModel.findOneAndUpdate({
@@ -66,7 +64,6 @@ module.exports = {
                                 .setFields(
                                     { name: `Votre compte à été décrédité de ${betValue} ChocoCoins, votre nouveau montant de ChocoCoins est : `, value: `${profileData.chococoins - parseInt(betValue)} ©` },
                                 )
-                                .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                             message.channel.send({ embeds: [accountDecreasedByBetEmbed] });
                         }
                     } else {
@@ -76,7 +73,6 @@ module.exports = {
                             .setFields(
                                 { name: `Votre avez bet ${betValue} ChocoCoins alors que vous n'en possédez que: `, value: `${profileData.chococoins} ©` },
                             )
-                            .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                         return message.channel.send({ embeds: [notEnoughCoinsEmbed] });
                     }
                 } else {
@@ -84,7 +80,6 @@ module.exports = {
                         .setColor('#F8F70E')
                         .setTitle(`Vous avez voulu bet une valeur négative de chococoins <:Madge:836688670316691486>`)
                         .setDescription(`Veuillez donner une valeur positive si vous souhaitez bet !`)
-                        .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                     return message.channel.send({ embeds: [negativeBetEmbed] });
                 }
             }
@@ -92,7 +87,6 @@ module.exports = {
             const zeroCoinsEmbed = new MessageEmbed()
                 .setColor('#F8F70E')
                 .setTitle(`Votre solde de ChocoCoins est insuffisant, vous avez 0 ©`)
-                .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
             return message.channel.send({ embeds: [zeroCoinsEmbed] });
         }
 
