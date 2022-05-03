@@ -2,7 +2,7 @@ const ProfileModel = require('../../models/profileSchema');
 require('dotenv').config();
 
 module.exports = async (client, message) => {
-    const prefix = process.env.PREFIX + ' ';
+    const prefix = process.env.PREFIX;
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 

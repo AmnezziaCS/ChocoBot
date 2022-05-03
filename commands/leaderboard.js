@@ -59,7 +59,6 @@ module.exports = {
             \n 8 - # ${fillTab[7].username} => ${sortedTab[7].coins} ©
             \n 9 - # ${fillTab[8].username} => ${sortedTab[8].coins} ©
             \n 10 - # ${fillTab[9].username} => ${sortedTab[9].coins} ©${authorString}\`\`\``)
-            .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
         return message.channel.send({ embeds: [leaderboardEmbed] });
     },
 };

@@ -24,9 +24,8 @@ module.exports = {
                 .setTitle(`Give`)
                 .setDescription("La commande give vous permet de donner ou retirer des chcococoins à un user !")
                 .setFields(
-                    { name: "`!c give [valeur en ChocoCoins] [tag de l'utilisateur ciblé]`", value: "En cas de problèmes, la commande ne s'éxecutera pas !" },
+                    { name: "`c!give [valeur en ChocoCoins] [tag de l'utilisateur ciblé]`", value: "En cas de problèmes, la commande ne s'éxecutera pas !" },
                 )
-                .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
             return message.channel.send({ embeds: [errorEmbed] });
         }
 
@@ -34,7 +33,6 @@ module.exports = {
             const editedFinalEmbed = new MessageEmbed()
                 .setColor('#F8F70E')
                 .setAuthor({ name: `Vous n'avez rien choisi !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
-                .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
             return editedFinalEmbed;
         }
 
@@ -42,7 +40,6 @@ module.exports = {
             const permissionsWrongEmbed = new MessageEmbed()
                 .setColor('#F8F70E')
                 .setAuthor({ name: `Vous ne pouvez pas utiliser cette commande`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
-                .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
             return message.channel.send({ embeds: [permissionsWrongEmbed] });
         } else {
             if (!parseInt(moneyAmount)) {
@@ -56,7 +53,6 @@ module.exports = {
                         const botTargetEmbed = new MessageEmbed()
                             .setColor('#F8F70E')
                             .setAuthor({ name: `Vous ne pouvez pas utiliser cette commande sur les bots !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
-                            .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                         return message.channel.send({ embeds: [botTargetEmbed] });
                     } else {
                         targetProfileData = await ProfileModel.findOne({ userID: target.id });
@@ -72,7 +68,6 @@ module.exports = {
                             const profileCreatedEmbed = new MessageEmbed()
                                 .setColor('#F8F70E')
                                 .setAuthor({ name: `Le profil de la personne mentionnée a été crée`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
-                                .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                             return message.channel.send({ embeds: [profileCreatedEmbed] });
                         }
 
@@ -80,7 +75,6 @@ module.exports = {
                             .setColor('#F8F70E')
                             .setAuthor({ name: `Choisissez si vous voulez lui ajouter ou lui retirer cette somme !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
                             .setDescription(`${stonksEmoji} = Add ${moneyAmount} ChocoCoins to ${target}'s account ? \n\n${notStoksEmoji} = Remove ${moneyAmount} ChocoCoins from ${target}'s account ?`)
-                            .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                         let collectedEmbed = await message.channel.send({ embeds: [chooseAddOrRemoveEmbed] });
 
                         for (const emoji of emojiList) await collectedEmbed.react(emoji);
@@ -106,7 +100,6 @@ module.exports = {
                                         .setFields(
                                             { name: `Nouveau montant de ChocoCoins : `, value: `${balanceUpdate.chococoins + parseInt(moneyAmount)} ©` },
                                         )
-                                        .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                                     collectedEmbed.edit({ embeds: [coinsIncreasedEmbed] });
                                     messageEdited = true;
                                     return reactionCollector.stop();
@@ -128,7 +121,6 @@ module.exports = {
                                         .setFields(
                                             { name: `Nouveau montant de ChocoCoins : `, value: `${balanceUpdate.chococoins - parseInt(moneyAmount)} ©` },
                                         )
-                                        .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                                     collectedEmbed.edit({ embeds: [coinsDecreasedEmbed] });
                                     messageEdited = true;
                                     return reactionCollector.stop();

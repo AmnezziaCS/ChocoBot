@@ -63,7 +63,6 @@ module.exports = {
                 .setFields(
                     { name: `Nouveau montant de ChocoCoins : `, value: `${profileData.chococoins + 2000} ©` },
                 )
-                .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
             message.channel.send({ embeds: [dailySuccessfullEmbed] });
         } else {
             const dailyFailedEmbed = new MessageEmbed()
@@ -73,7 +72,6 @@ module.exports = {
                 .setFields(
                     { name: `Vous pourrez utiliser votre daily dans :`, value: `${convertMsToHM(86400000 - dateDifference)}h` },
                 )
-                .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
             message.channel.send({ embeds: [dailyFailedEmbed] });
         }
     },

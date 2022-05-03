@@ -31,7 +31,6 @@ module.exports = {
                 const selfRobEmbed = new MessageEmbed()
                     .setColor('#F8F70E')
                     .setAuthor({ name: `Vous ne pouvez pas vous rob vous même !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
-                    .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                 return message.channel.send({ embeds: [selfRobEmbed] });
             }
 
@@ -39,7 +38,6 @@ module.exports = {
                 const botTargetEmbed = new MessageEmbed()
                     .setColor('#F8F70E')
                     .setAuthor({ name: `Vous ne pouvez pas utiliser cette commande sur les bots !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
-                    .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                 return message.channel.send({ embeds: [botTargetEmbed] });
             }
 
@@ -80,7 +78,6 @@ module.exports = {
                             .setFields(
                                 { name: `Votre nouveau montant de ChocoCoins est : `, value: `${profileData.chococoins - small} ©` },
                             )
-                            .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                         return message.channel.send({ embeds: [smallLossEmbed] });
                     case 2:
                         updateAuthorChocoCoins(-big);
@@ -99,7 +96,6 @@ module.exports = {
                             .setFields(
                                 { name: `Votre nouveau montant de ChocoCoins est : `, value: `${profileData.chococoins - big} ©` },
                             )
-                            .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                         return message.channel.send({ embeds: [bigLossEmbed] });
                     case 3:
                         updateAuthorChocoCoins(small);
@@ -118,7 +114,6 @@ module.exports = {
                             .setFields(
                                 { name: `Votre nouveau montant de ChocoCoins est : `, value: `${profileData.chococoins + small} ©` },
                             )
-                            .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                         return message.channel.send({ embeds: [smallGainEmbed] });
                     case 4:
                         updateAuthorChocoCoins(big);
@@ -137,7 +132,6 @@ module.exports = {
                             .setFields(
                                 { name: `Votre nouveau montant de ChocoCoins est : `, value: `${profileData.chococoins + big} ©` },
                             )
-                            .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                         return message.channel.send({ embeds: [bigGainEmbed] });
                 }
 
@@ -145,7 +139,6 @@ module.exports = {
                 const newEmbed = new MessageEmbed()
                     .setColor('#F8F70E')
                     .setAuthor({ name: `Vous ou la personne que vous avez essayé de rob posséde moins de 1000 ChocoCoins, par conséquent, vous ne pouvez utiliser la commande !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
-                    .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                 return message.channel.send({ embeds: [newEmbed] });
             }
         } else {
@@ -154,9 +147,8 @@ module.exports = {
                 .setTitle(`Rob`)
                 .setDescription("La commande rob vous permet de voler des ChocoCoins à la personne mentionnée. Ceci dit, garre à ne pas vous faire prendre ou vous le regretterez !")
                 .setFields(
-                    { name: '`!c rob [mention de la personne à voler]`', value: "Attention, vous devez avoir un solde de ChocoCoins au moins supérieur à 1000 pour pouvoir rob un utilisateur !" },
+                    { name: '`c!rob [mention de la personne à voler]`', value: "Attention, vous devez avoir un solde de ChocoCoins au moins supérieur à 1000 pour pouvoir rob un utilisateur !" },
                 )
-                .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
             return message.channel.send({ embeds: [newEmbed] });
         }
 

@@ -19,7 +19,6 @@ module.exports = {
                 const botTargetEmbed = new MessageEmbed()
                     .setColor('#F8F70E')
                     .setAuthor({ name: `Vous ne pouvez pas utiliser cette commande sur les bots !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
-                    .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                 return message.channel.send({ embeds: [botTargetEmbed] });
             } else {
                 targetProfileData = await ProfileModel.findOne({ userID: target.id });
@@ -35,7 +34,6 @@ module.exports = {
                     const profileCreatedEmbed = new MessageEmbed()
                         .setColor('#F8F70E')
                         .setAuthor({ name: `Le profil de la personne mentionnée a été crée`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
-                        .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                     return message.channel.send({ embeds: [profileCreatedEmbed] });
                 } else {
                     const targetBalanceEmbed = new MessageEmbed()
@@ -45,7 +43,6 @@ module.exports = {
                         .setFields(
                             { name: `Montant de ChocoCoins : `, value: `${targetProfileData.chococoins} ©` },
                         )
-                        .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
                     return message.channel.send({ embeds: [targetBalanceEmbed] });
                 }
             }
@@ -57,7 +54,6 @@ module.exports = {
             .setFields(
                 { name: `Montant de ChocoCoins : `, value: `${profileData.chococoins} ©` },
             )
-            .setFooter({ text: `Merci d'utiliser ChocoBot, ~Chocooo`, iconURL: 'https://static.wikia.nocookie.net/smashbros/images/1/10/Art_Chocobo_FFF-CT.png/revision/latest/scale-to-width-down/190?cb=20201221211852&path-prefix=fr' })
         return message.channel.send({ embeds: [authorBalanceEmbed] });
     },
 };
