@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('balance')
         .setDescription(`Renvoie la monaie du joueur.`),
-    aliases: ['bl'],
+    aliases: ['bl', 'bal', 'b'],
     async execute(client, message, args, profileData) {
         profileData = await ProfileModel.findOne({ userID: message.author.id });
         if (!profileData) {

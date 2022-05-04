@@ -5,6 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('hocoball')
         .setDescription('Une question, demandez à la boule magique.'),
+    aliases: ['ball'],
     execute(client, message, args) {
 
         function getRandomInt(max) {
@@ -17,7 +18,7 @@ module.exports = {
                 .setTitle('ChocoBall')
                 .setDescription("La ChocoBall magique vous permez d'avoir la réponse magique à votre question <:YEP:800841093515444244>")
                 .addFields(
-                    { name: '`c!hocoBall [question ?]`', value: "Donnera la réponse à votre question, n'oubliez pas le point d'interrogation !" },
+                    { name: '`c!hocoBall / ball [question ?]`', value: "Donnera la réponse à votre question, n'oubliez pas le point d'interrogation !" },
                 )
             message.reply({ embeds: [chocoballHowEmbed] });
         } else {
