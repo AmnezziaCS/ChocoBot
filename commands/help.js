@@ -17,7 +17,7 @@ module.exports = {
                 { name: '`Ratio [mention de la personne voulue]`', value: `Ratio la personne mentionnée !` },
                 { name: '`Ounterratio`', value: `Contre le ratio ennemi !` },
                 { name: '`Meilleurmove`', value: `Le piii, le meill, Le meilleurrrrrr moooveeeeeee !` },
-                { name: '`Hocoball [question ?]`', value: `Une question ? Demandez à la boule magique !` },
+                { name: '`Hocoball / ball [question ?]`', value: `Une question ? Demandez à la boule magique !` },
                 { name: '`Um`', value: `N'utilisez pas cette commande pitié 😳.` }
             )
         const help2 = new MessageEmbed()
@@ -25,9 +25,9 @@ module.exports = {
             .setAuthor({ name: `Commandes Banquières`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
             .setDescription("Format type : `c![commande]`.")
             .addFields(
-                { name: '`Balance / bl [mention de la personne voulue (optionnel)]`', value: 'Permet de consulter votre solde de ChocoCoins ainsi que celui des autres !' },
+                { name: '`Balance / bl / bal / b [mention de la personne voulue (optionnel)]`', value: 'Permet de consulter votre solde de ChocoCoins ainsi que celui des autres !' },
                 { name: '`Leaderboard / lb`', value: `Affiche le leaderboard global des chococoins !` },
-                { name: '`Daily`', value: `Vous permet de récolter des ChocoCoins chaque jour !` },
+                { name: '`Daily / d`', value: `Vous permet de récolter des ChocoCoins chaque jour !` },
                 { name: '`Rob [mention de la personne voulue]`', value: `Permet de voler les ChocoCoins d'un utilisateur ou l'inverse.... !` },
                 { name: '`Bet [somme mise en jeu]`', value: `Lancement d'un dé, soit la somme misée est doublée soit elle est perdue à jamais !` },
             )

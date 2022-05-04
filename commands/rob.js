@@ -50,6 +50,11 @@ module.exports = {
                     dailyCheck: '2020-04-24T19:44:31.589+0000'
                 });
                 profile.save();
+
+                const profileCreatedEmbed = new MessageEmbed()
+                    .setColor('#F8F70E')
+                    .setAuthor({ name: `Le profil de la personne mentionnée a été crée`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
+                return message.channel.send({ embeds: [profileCreatedEmbed] });
             }
 
             if (profileData.chococoins >= 1000 && targetProfileData.chococoins >= 1000) {

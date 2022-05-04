@@ -6,6 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('daily')
         .setDescription('Permet de récupérer des ChocoCoins chaque jour'),
+    aliases: ['d'],
     async execute(client, message, args, profileData) {
 
         profileData = await ProfileModel.findOne({ userID: message.author.id });

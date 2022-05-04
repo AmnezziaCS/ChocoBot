@@ -19,8 +19,8 @@ module.exports = {
         if (osuIDExists.osuUserID === '') return message.channel.send({ embeds: [noOsuAccountEmbed] });
 
         const rankPNG = {
-            XH: '<:SSH:971030365772845156>',
-            X: '<:SS:971030365839970304>',
+            XH: '<:XH:971030365772845156>',
+            X: '<:X_:971030365839970304>',
             SH: '<:SH:971030365810610226>',
             S: '<:S:971030365726711839>',
             A: '<:A_:971030365705732106>',
@@ -71,7 +71,7 @@ module.exports = {
                 .setAuthor({ name: `Le score le plus récent d'${getUserRecentScore.data[0].user.username} !`, iconURL: `${getUserRecentScore.data[0].user.avatar_url}.jpeg` })
                 .setTitle(`${getUserRecentScore.data[0].beatmapset.title} [${getUserRecentScore.data[0].beatmap.version}] - ${getUserRecentScore.data[0].beatmap.difficulty_rating}*`)
                 .setURL(`${getUserRecentScore.data[0].beatmap.url}`)
-                .setDescription(`${getValue(rankPNG, getUserRecentScore.data[0].rank)} **(${(getUserRecentScore.data[0].accuracy * 100).toPrecision(4)}%) +${modsBuffer}** *played* <t:${new Date(getUserRecentScore.data[0].created_at).getTime() / 1000}:R>\n**Score :** ${getUserRecentScore.data[0].score.toLocaleString()} **PP : ${getUserRecentScore.data[0].pp}**`)
+                .setDescription(`${getValue(rankPNG, getUserRecentScore.data[0].rank)} **(${(getUserRecentScore.data[0].accuracy * 100).toPrecision(4)}%) +${modsBuffer}** *played* <t:${new Date(getUserRecentScore.data[0].created_at).getTime() / 1000}:R>\n**Score :** ${getUserRecentScore.data[0].score.toLocaleString()} **PP : ${getUserRecentScore.data[0].pp.toPrecision(4)}**`)
                 .setThumbnail(`https://assets.ppy.sh/beatmaps/${getUserRecentScore.data[0].beatmapset.id}/covers/list.jpg`)
             return message.channel.send({ embeds: [recentScoreEmbed] });
 
