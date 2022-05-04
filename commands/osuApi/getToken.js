@@ -1,7 +1,6 @@
 const axios = require('axios');
 const fs = require('fs');
 const os = require('os');
-require('dotenv').config();
 
 function setEnvValue(key, value) {
     const ENV_VARS = fs.readFileSync("./.env", "utf8").split(os.EOL);

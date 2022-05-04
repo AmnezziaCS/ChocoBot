@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, Collector } = require('discord.js');
 const ProfileModel = require('../models/profileSchema');
-require('dotenv').config();
 
 module.exports = {
     data: new SlashCommandBuilder()

@@ -1,5 +1,4 @@
 const ProfileModel = require('../../models/profileSchema');
-require('dotenv').config();
 
 module.exports = async (client, message) => {
     const prefix = process.env.PREFIX;

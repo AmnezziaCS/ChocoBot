@@ -128,7 +128,7 @@ module.exports = {
                         const bigGainEmbed = new MessageEmbed()
                             .setColor('#F8F70E')
                             .setThumbnail(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg`)
-                            .setTitle(`Vous avez réussi à voler ${target.username}, vous repartez avec sa carte de crédit qui contenanit ${big} © !`)
+                            .setTitle(`Vous avez réussi à voler ${target.username}, vous repartez avec sa carte de crédit qui contenait ${big} © !`)
                             .setFields(
                                 { name: `Votre nouveau montant de ChocoCoins est : `, value: `${profileData.chococoins + big} ©` },
                             )
