@@ -2,7 +2,6 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const ProfileModel = require('../models/profileSchema');
 const axios = require('axios');
-require('dotenv').config();
 const getToken = require('./osuApi/getToken');
 
 module.exports = {
