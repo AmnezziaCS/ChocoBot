@@ -60,7 +60,8 @@ module.exports = {
             auth
         ).catch((error) => {
             userFalse = true;
-            console.log('Problem with the osu API request')
+            console.log(error);
+            console.log('Problem with the osu API request');
         });
 
         if (getUserRecentScore.data[0] != null) {
