@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
-const paginationEmbed = require('discord.js-pagination');
+const paginationEmbed = require('../utils/paginate');
 
 module.exports = {
     data: new SlashCommandBuilder()

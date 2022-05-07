@@ -13,47 +13,58 @@ module.exports = {
             return;
         }
 
-        const target = message.mentions.users.first();
-        if (target != null) {
-            if (target.bot) {
-                const botTargetEmbed = new MessageEmbed()
-                    .setColor('#F8F70E')
-                    .setAuthor({ name: `Vous ne pouvez pas utiliser cette commande sur les bots !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
-                return message.channel.send({ embeds: [botTargetEmbed] });
-            } else {
-                targetProfileData = await ProfileModel.findOne({ userID: target.id });
-                if (!targetProfileData) {
-                    let profile = await ProfileModel.create({
-                        userID: message.mentions.users.first().id,
-                        serverID: message.guild.id,
-                        chococoins: 5000,
-                        dailyCheck: '2020-04-24T19:44:31.589+0000'
-                    });
-                    profile.save();
+        // checks if someone is pinged in the message
 
-                    const profileCreatedEmbed = new MessageEmbed()
-                        .setColor('#F8F70E')
-                        .setAuthor({ name: `Le profil de la personne mentionnée a été crée`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
-                    return message.channel.send({ embeds: [profileCreatedEmbed] });
-                } else {
-                    const targetBalanceEmbed = new MessageEmbed()
-                        .setColor('#F8F70E')
-                        .setThumbnail(`https://cdn.discordapp.com/avatars/${target.id}/${target.avatar}.jpeg`)
-                        .setTitle(`Les thunasses de ${target.username}`)
-                        .setFields(
-                            { name: `Montant de ChocoCoins : `, value: `${targetProfileData.chococoins} ©` },
-                        )
-                    return message.channel.send({ embeds: [targetBalanceEmbed] });
-                }
-            }
+        const target = message.mentions.users.first();
+
+        if (target == null) {
+            const authorBalanceEmbed = new MessageEmbed()
+                .setColor('#F8F70E')
+                .setThumbnail(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg`)
+                .setTitle(`Les thunasses de ${message.author.username}`)
+                .setFields(
+                    { name: `Montant de ChocoCoins : `, value: `${profileData.chococoins} ©` },
+                )
+            return message.channel.send({ embeds: [authorBalanceEmbed] });
         }
-        const authorBalanceEmbed = new MessageEmbed()
+
+        // checks if pinged user is a bot
+
+        if (target.bot) {
+            const botTargetEmbed = new MessageEmbed()
+                .setColor('#F8F70E')
+                .setAuthor({ name: `Vous ne pouvez pas utiliser cette commande sur les bots !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
+            return message.channel.send({ embeds: [botTargetEmbed] });
+        }
+
+        // checks if the pinged person has a money profile, if not, creates one
+
+        targetProfileData = await ProfileModel.findOne({ userID: target.id });
+        if (!targetProfileData) {
+            let profile = await ProfileModel.create({
+                userID: message.mentions.users.first().id,
+                serverID: message.guild.id,
+                chococoins: 5000,
+                dailyCheck: '2020-04-24T19:44:31.589+0000'
+            });
+            profile.save();
+
+            const profileCreatedEmbed = new MessageEmbed()
+                .setColor('#F8F70E')
+                .setAuthor({ name: `Le profil de la personne mentionnée a été crée`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
+            return message.channel.send({ embeds: [profileCreatedEmbed] });
+        }
+
+        const targetBalanceEmbed = new MessageEmbed()
             .setColor('#F8F70E')
-            .setThumbnail(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg`)
-            .setTitle(`Les thunasses de ${message.author.username}`)
+            .setThumbnail(`https://cdn.discordapp.com/avatars/${target.id}/${target.avatar}.jpeg`)
+            .setTitle(`Les thunasses de ${target.username}`)
             .setFields(
-                { name: `Montant de ChocoCoins : `, value: `${profileData.chococoins} ©` },
+                { name: `Montant de ChocoCoins : `, value: `${targetProfileData.chococoins} ©` },
             )
-        return message.channel.send({ embeds: [authorBalanceEmbed] });
+        return message.channel.send({ embeds: [targetBalanceEmbed] });
+
+
+
     },
 };

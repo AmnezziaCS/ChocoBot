@@ -2,6 +2,20 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const ProfileModel = require('../models/profileSchema');
 
+const sortTabByChococoinsAsc = (all) => {
+    let tab = new Array();
+    all.forEach(element => {
+        const pair = {};
+        let myPair = Object.create(pair);
+        pair.id = element.userID;
+        pair.coins = element.chococoins;
+        tab.push(pair);
+    });
+
+    tab.sort((a, b) => parseFloat(b.coins) - parseFloat(a.coins));
+    return tab;
+}
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('leaderboard')
@@ -9,23 +23,11 @@ module.exports = {
     aliases: ['lb'],
     async execute(client, message, args, profileData) {
 
+        // checks if message author has a coin profile
+
         profileData = await ProfileModel.findOne({ userID: message.author.id });
         if (!profileData) {
             return;
-        }
-
-        const sortTabByChococoinsAsc = (all) => {
-            let tab = new Array();
-            all.forEach(element => {
-                const pair = {};
-                let myPair = Object.create(pair);
-                pair.id = element.userID;
-                pair.coins = element.chococoins;
-                tab.push(pair);
-            });
-
-            tab.sort((a, b) => parseFloat(b.coins) - parseFloat(a.coins));
-            return tab;
         }
 
         const allValuesOfDB = await ProfileModel.find();
@@ -36,7 +38,7 @@ module.exports = {
             return object.id === message.author.id;
         });
 
-        if (authorRank > 4) {
+        if (authorRank > 9) {
             authorString = `\n\n ${authorRank + 1} - # ${message.author.username} => ${profileData.chococoins} ©`;
         }
 
