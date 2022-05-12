@@ -3,17 +3,6 @@ const ProfileModel = require('../../models/profileSchema');
 module.exports = async (client, message) => {
     const prefix = process.env.PREFIX;
 
-    if (message.content.toLowerCase().includes("raciste")
-        || message.content.toLowerCase().includes("pédophile")
-        || message.content.toLowerCase().includes("pedophile")
-    ) message.react('<:hmmmm:898672241787674634>');
-
-    if (message.content.toLowerCase().includes('dictateur')
-        || message.content.toLowerCase().includes('dictature')
-    ) {
-        message.react('🇫'); message.react('🇱'); message.react('🇴');
-    }
-
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     let profileData;
