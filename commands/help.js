@@ -5,7 +5,7 @@ const paginationEmbed = require('../utils/paginate');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('help')
-        .setDescription('Une commande qui les donnent toutes !'),
+        .setDescription('Une commande qui les donne toutes !'),
     aliases: ['h'],
     async execute(client, message, args) {
 

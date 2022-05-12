@@ -1,6 +1,6 @@
 const axios = require('axios');
 const fs = require('fs');
-const fileName = './token.json';
+const fileName = './osuApi/token.json';
 const jsonObject = require('./token.json');
 
 const getToken = async () => {
