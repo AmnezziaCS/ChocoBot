@@ -6,6 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('help')
         .setDescription('Une commande qui les donnent toutes !'),
+    aliases: ['h'],
     async execute(client, message, args) {
 
         const help1 = new MessageEmbed()

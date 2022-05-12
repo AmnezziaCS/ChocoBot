@@ -32,6 +32,7 @@ module.exports = {
             stonksEmoji,
             notStoksEmoji
         ];
+        let embedEdited = false;
         const [moneyAmount] = args;
 
         // checks if message author is bot admin 
@@ -114,7 +115,8 @@ module.exports = {
                         .setFields(
                             { name: `Nouveau montant de ChocoCoins : `, value: `${balanceUpdate.chococoins + parseInt(moneyAmount)} ©` },
                         )
-                    await collectedEmbed.edit({ embeds: [coinsIncreasedEmbed] });
+                    collectedEmbed.edit({ embeds: [coinsIncreasedEmbed] });
+                    embedEdited = true;
                     return reactionCollector.stop();
                 case emojiList[1]:
                     await collectedEmbed.reactions.removeAll();
@@ -133,13 +135,13 @@ module.exports = {
                         .setFields(
                             { name: `Nouveau montant de ChocoCoins : `, value: `${balanceUpdate.chococoins - parseInt(moneyAmount)} ©` },
                         )
-                    await collectedEmbed.edit({ embeds: [coinsDecreasedEmbed] });
+                    collectedEmbed.edit({ embeds: [coinsDecreasedEmbed] });
+                    embedEdited = true;
                     return reactionCollector.stop();
             }
-            return;
         });
         reactionCollector.on('end', () => {
-            if (collectedEmbed.editedAt == null) {
+            if (embedEdited === false) {
                 collectedEmbed.reactions.removeAll();
                 return collectedEmbed.edit({ embeds: [editedFinalEmbed(message)] });
             }
