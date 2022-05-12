@@ -42,7 +42,7 @@ const voyelTab = [
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('recent')
-        .setDescription('Recent your last osu play !'),
+        .setDescription('Renvoie votre dernier play osu en date !'),
     aliases: ['r', 'rs'],
     async execute(client, message, args, profileData) {
 

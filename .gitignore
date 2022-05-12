@@ -6,3 +6,6 @@ node_modules/
 
 // fun with reaction on some messages
 events/guild/message.js
+
+// json token file
+osuApi/token.json

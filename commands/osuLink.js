@@ -7,7 +7,7 @@ const getUser = require('../osuApi/getUser');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('osulink')
-        .setDescription('Links your osu id'),
+        .setDescription('Links your osu id to your discord profile'),
     async execute(client, message, args, profileData) {
 
         let userFalse = false;
