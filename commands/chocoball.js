@@ -23,11 +23,6 @@ module.exports = {
             return message.channel.send({ embeds: [chocoballExplanationsEmbed] });
         }
 
-        if (message.content.toLowerCase().includes("pédophile")
-            || message.content.toLowerCase().includes("pedophile")
-            || message.content.toLowerCase().includes("raciste")
-        ) message.react('<:hmmmm:898672241787674634>');
-
         switch (getRandomInt(9)) {
             case 0:
                 return message.channel.send('Re-demandez plus tard <:pepoG:948676211213758474>');

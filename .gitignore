@@ -3,3 +3,6 @@ node_modules/
 
 // environment variables
 .env
+
+// fun with reaction on some messages
+events/guild/message.js

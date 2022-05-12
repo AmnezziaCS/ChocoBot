@@ -88,7 +88,7 @@ module.exports = {
         if (profileData.chococoins < 1000 || targetProfileData.chococoins < 1000) {
             const notEnoughMoneyEmbed = new MessageEmbed()
                 .setColor('#F8F70E')
-                .setAuthor({ name: `Vous ou la personne que vous avez essayé de rob posséde moins de 1000 ChocoCoins, par conséquent, vous ne pouvez utiliser la commande !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
+                .setAuthor({ name: `Vous ou la personne que vous avez essayé de rob posséde moins de 1000 ChocoCoins, par conséquent, vous ne pouvez utiliser cette commande !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
             return message.channel.send({ embeds: [notEnoughMoneyEmbed] });
         }
 
@@ -130,7 +130,7 @@ module.exports = {
                 return message.channel.send({ embeds: [smallGainEmbed] });
             case 4:
                 updateAuthorChocoCoins(big, message);
-                updateTargetChocoCoins(-small, targetProfileData, target);
+                updateTargetChocoCoins(-big, targetProfileData, target);
                 const bigGainEmbed = new MessageEmbed()
                     .setColor('#F8F70E')
                     .setThumbnail(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg`)

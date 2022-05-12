@@ -63,8 +63,5 @@ module.exports = {
                 { name: `Montant de ChocoCoins : `, value: `${targetProfileData.chococoins} ©` },
             )
         return message.channel.send({ embeds: [targetBalanceEmbed] });
-
-
-
     },
 };
