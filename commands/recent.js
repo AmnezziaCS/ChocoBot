@@ -52,10 +52,13 @@ module.exports = {
             .setColor('#F8F70E')
             .setAuthor({ name: "Vous n'avez pas lié de compte osu à votre Discord", iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
             .setDescription("Veuillez utiliser la commande `c!osulink [id osu]` afin de lier votre compte")
+
         const osuIDExists = await ProfileModel.findOne({ userID: message.author.id }).select("osuUserID").lean();
         if (osuIDExists.osuUserID === '' || osuIDExists.osuUserID == null) return message.channel.send({ embeds: [noOsuAccountEmbed] });
 
         const userRecentScore = await getUserRecentScore(1, profileData.osuUserID);
+
+        // If user has no recent score
 
         if (!userRecentScore) {
             const noScoresEmbed = new MessageEmbed()
@@ -75,6 +78,8 @@ module.exports = {
                 return voyelBuffer = "d'";
             }
         })
+
+        // Create the embed
 
         const recentScoreEmbed = new MessageEmbed()
             .setColor('#F8F70E')
