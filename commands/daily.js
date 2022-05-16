@@ -2,26 +2,6 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const ProfileModel = require('../models/profileSchema');
 
-function padTo2Digits(num) {
-    return num.toString().padStart(2, '0');
-}
-
-function convertMsToHM(milliseconds) {
-    if (milliseconds >= 86340000) {
-        return '23:59';
-    }
-    let seconds = Math.floor(milliseconds / 1000);
-    let minutes = Math.floor(seconds / 60);
-    let hours = Math.floor(minutes / 60);
-
-    seconds = seconds % 60;
-    minutes = seconds >= 30 ? minutes + 1 : minutes;
-    minutes = minutes % 60;
-    hours = hours % 24;
-
-    return `${padTo2Digits(hours)}:${padTo2Digits(minutes)}`;
-}
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('daily')
@@ -38,16 +18,18 @@ module.exports = {
 
         // checks if message author's daily is available 
 
-        const dateDifferenceInMilliseconds = new Date().getTime() - profileData.dailyCheck.getTime();
-        const differenceInDays = dateDifferenceInMilliseconds / 86400000;
+        const differenceInDays = (new Date().getTime() - profileData.dailyCheck.getTime()) / 86400000;
 
         if (!(profileData.dailyCheck === null || differenceInDays > 1)) {
+            var timeLeft = new Date(profileData.dailyCheck);
+            timeLeft.setDate(timeLeft.getDate() + 1);
+
             const dailyFailedEmbed = new MessageEmbed()
                 .setColor('#F8F70E')
                 .setThumbnail(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg`)
                 .setTitle(`Votre daily n'est pas disponible ${message.author.username}`)
                 .setFields(
-                    { name: `Vous pourrez utiliser votre daily dans :`, value: `${convertMsToHM(86400000 - dateDifferenceInMilliseconds)}h` },
+                    { name: `Vous pourrez utiliser votre daily :`, value: `<t:${Math.round(timeLeft.getTime() / 1000)}:R>` },
                 )
             return message.channel.send({ embeds: [dailyFailedEmbed] });
         }

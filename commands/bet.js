@@ -21,9 +21,9 @@ module.exports = {
 
         // checks if the command is right c!bet [coins value]
 
-        const [betValue] = args;
+        const [betValueOG] = args;
 
-        if (!parseInt(betValue)) {
+        if (!parseInt(betValueOG)) {
             const betExplanationsEmbed = new MessageEmbed()
                 .setColor('#F8F70E')
                 .setTitle(`Bet`)
@@ -33,6 +33,8 @@ module.exports = {
                 )
             return message.channel.send({ embeds: [betExplanationsEmbed] });
         }
+
+        const betValue = parseInt(betValueOG);
 
         // checks if the message author has more than 0 coins
 

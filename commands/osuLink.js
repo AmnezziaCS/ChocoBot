@@ -13,6 +13,8 @@ module.exports = {
         let userFalse = false;
         const osuID = args[0];
 
+        // Checks if command is valid
+
         if (!parseInt(osuID)) {
             const osuLinkExplanationsEmbed = new MessageEmbed()
                 .setColor('#F8F70E')
@@ -26,12 +28,16 @@ module.exports = {
 
         const user = await getUser(osuID);
 
+        // Checks if user exists
+
         if (user === null) {
             const wrongIDEmbed = new MessageEmbed()
                 .setColor('#F8F70E')
                 .setAuthor({ name: `Votre ID ${osuID} n'est pas valable, merci de choisir un ID correct !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
             return message.channel.send({ embeds: [wrongIDEmbed] });
         }
+
+        // Creates embed
 
         const osuLinkUpdate = await ProfileModel.findOneAndUpdate({
             userID: message.author.id,
