@@ -42,7 +42,6 @@ module.exports = async (client, message) => {
     try {
         command.execute(client, message, args, profileData);
     } catch (err) {
-        message.reply("Quelque chose n'a pas tourné rond, bizarre. Soit votre commande n'existe pas, soit elle est erronée <:hmmmm:898672241787674634>");
         console.log(err);
     }
 }
