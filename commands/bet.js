@@ -101,7 +101,7 @@ module.exports = {
                     .setThumbnail(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg`)
                     .setTitle(`Nonnn, vous avez perdu !`)
                     .setFields(
-                        { name: `Votre compte à été décrédité de ${betValue} ChocoCoins, votre nouveau montant de ChocoCoins est : `, value: `${profileData.chococoins - parseInt(betValue)} ©` },
+                        { name: `Votre compte à été débité de ${betValue} ChocoCoins, votre nouveau montant de ChocoCoins est : `, value: `${profileData.chococoins - parseInt(betValue)} ©` },
                     )
                 return message.channel.send({ embeds: [accountDecreasedByBetEmbed] });
         }
