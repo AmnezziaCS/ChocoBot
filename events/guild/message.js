@@ -37,6 +37,8 @@ module.exports = async (client, message) => {
     const cmd = args.shift().toLowerCase();
     const command = client.commands.get(cmd) || client.commands.find(a => a.aliases && a.aliases.includes(cmd));
 
+    if (!command) return message.reply("Quelque chose n'a pas tourné rond, bizarre. Soit votre commande n'existe pas, soit elle est erronée <:hmmmm:898672241787674634>");
+    
     try {
         command.execute(client, message, args, profileData);
     } catch (err) {
