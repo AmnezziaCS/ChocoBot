@@ -131,7 +131,7 @@ module.exports = {
                     const coinsDecreasedEmbed = new MessageEmbed()
                         .setColor('#F8F70E')
                         .setThumbnail(`https://cdn.discordapp.com/avatars/${target.id}/${target.avatar}.jpeg`)
-                        .setTitle(`Le compte de ${target.username} à bien été décrédité de ${moneyAmount} ChocoCoins`)
+                        .setTitle(`Le compte de ${target.username} à bien été débité de ${moneyAmount} ChocoCoins`)
                         .setFields(
                             { name: `Nouveau montant de ChocoCoins : `, value: `${balanceUpdate.chococoins - parseInt(moneyAmount)} ©` },
                         )
