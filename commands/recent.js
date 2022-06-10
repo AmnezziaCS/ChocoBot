@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const ProfileModel = require('../models/profileSchema');
+const getUser = require('../osuApi/getUser');
 const getUserRecentScore = require('../osuApi/getUserRecentScore');
 
 function getValue(obj, key) {
@@ -34,24 +35,43 @@ module.exports = {
     aliases: ['r', 'rs'],
     async execute(client, message, args, profileData) {
 
-        // Checks if the message author is linked to an osu account 
+        let osuId;
 
-        const noOsuAccountEmbed = new MessageEmbed()
-            .setColor('#F8F70E')
-            .setAuthor({ name: "Vous n'avez pas lié de compte osu à votre Discord", iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
-            .setDescription("Veuillez utiliser la commande `c!osulink [id osu]` afin de lier votre compte")
+        if (args[0] != null) {
 
-        const osuIDExists = await ProfileModel.findOne({ userID: message.author.id }).select("osuUserID").lean();
-        if (osuIDExists.osuUserID === '' || osuIDExists.osuUserID == null) return message.channel.send({ embeds: [noOsuAccountEmbed] });
+            // Checks if there is a username after the recent command, if there is one, do the command for that username
 
-        const userRecentScore = await getUserRecentScore(1, profileData.osuUserID);
+            const osuUsername = args[0];
+            const osuUser = await getUser(osuUsername);
+            if (osuUser === null) {
+                const wrongIDEmbed = new MessageEmbed()
+                    .setColor('#F8F70E')
+                    .setAuthor({ name: `Le joueur que vous avez spécifié n'existe pas !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
+                return message.channel.send({ embeds: [wrongIDEmbed] });
+            }
+            osuId = osuUser.id;
+        } else {
+
+            // Checks if the message author is linked to an osu account 
+
+            const noOsuAccountEmbed = new MessageEmbed()
+                .setColor('#F8F70E')
+                .setAuthor({ name: "Vous n'avez pas lié de compte osu à votre Discord", iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
+                .setDescription("Veuillez utiliser la commande `c!osulink [id osu]` afin de lier votre compte")
+
+            const osuIDExists = await ProfileModel.findOne({ userID: message.author.id }).select("osuUserID").lean();
+            if (osuIDExists.osuUserID === '' || osuIDExists.osuUserID == null) return message.channel.send({ embeds: [noOsuAccountEmbed] });
+            osuId = profileData.osuUserID;
+        }
+
+        const userRecentScore = await getUserRecentScore(1, osuId);
 
         // If user has no recent score
 
         if (!userRecentScore) {
             const noScoresEmbed = new MessageEmbed()
                 .setColor('#F8F70E')
-                .setAuthor({ name: `Vous n'avez pas de scores récents !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
+                .setAuthor({ name: `L'utilisateur n'a pas de scores récents !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
             return message.channel.send({ embeds: [noScoresEmbed] });
         }
 
