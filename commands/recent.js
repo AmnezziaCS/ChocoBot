@@ -36,6 +36,7 @@ module.exports = {
     async execute(client, message, args, profileData) {
 
         let osuId;
+        let osuPlayerAvatar;
 
         if (args[0] != null) {
 
@@ -49,6 +50,7 @@ module.exports = {
                     .setAuthor({ name: `Le joueur que vous avez spécifié n'existe pas !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
                 return message.channel.send({ embeds: [wrongIDEmbed] });
             }
+            osuPlayerAvatar = osuUser.avatar_url;
             osuId = osuUser.id;
         } else {
 
@@ -69,9 +71,11 @@ module.exports = {
         // If user has no recent score
 
         if (!userRecentScore) {
+            if (!osuPlayerAvatar) osuPlayerAvatar = `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg`;
+
             const noScoresEmbed = new MessageEmbed()
                 .setColor('#F8F70E')
-                .setAuthor({ name: `L'utilisateur n'a pas de scores récents !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
+                .setAuthor({ name: `L'utilisateur n'a pas de scores récents !`, iconURL: osuPlayerAvatar })
             return message.channel.send({ embeds: [noScoresEmbed] });
         }
 
