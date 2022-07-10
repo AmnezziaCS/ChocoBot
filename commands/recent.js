@@ -36,7 +36,6 @@ module.exports = {
     async execute(client, message, args, profileData) {
 
         let osuId;
-        let osuPlayerAvatar;
 
         if (args[0] != null) {
 
@@ -50,7 +49,6 @@ module.exports = {
                     .setAuthor({ name: `Le joueur que vous avez spécifié n'existe pas !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
                 return message.channel.send({ embeds: [wrongIDEmbed] });
             }
-            osuPlayerAvatar = osuUser.avatar_url;
             osuId = osuUser.id;
         } else {
 
@@ -61,8 +59,8 @@ module.exports = {
                 .setAuthor({ name: "Vous n'avez pas lié de compte osu à votre Discord", iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
                 .setDescription("Veuillez utiliser la commande `c!osulink [id osu]` afin de lier votre compte")
 
-            const osuIDExists = await ProfileModel.findOne({ userID: message.author.id }).select("osuUserID").lean();
-            if (osuIDExists.osuUserID === '' || osuIDExists.osuUserID == null) return message.channel.send({ embeds: [noOsuAccountEmbed] });
+            const userDbProfile = await ProfileModel.findOne({ userID: message.author.id }).select("osuUserID").lean();
+            if (userDbProfile.osuUserID === '' || userDbProfile.osuUserID == null) return message.channel.send({ embeds: [noOsuAccountEmbed] });
             osuId = profileData.osuUserID;
         }
 
@@ -71,11 +69,9 @@ module.exports = {
         // If user has no recent score
 
         if (!userRecentScore) {
-            if (!osuPlayerAvatar) osuPlayerAvatar = `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg`;
-
             const noScoresEmbed = new MessageEmbed()
                 .setColor('#F8F70E')
-                .setAuthor({ name: `L'utilisateur n'a pas de scores récents !`, iconURL: osuPlayerAvatar })
+                .setAuthor({ name: `L'utilisateur n'a pas de scores récents !`, iconURL: `https://a.ppy.sh/${osuId}?.jpeg`})
             return message.channel.send({ embeds: [noScoresEmbed] });
         }
 
@@ -95,7 +91,7 @@ module.exports = {
 
         const recentScoreEmbed = new MessageEmbed()
             .setColor('#F8F70E')
-            .setAuthor({ name: `Le score le plus récent ${voyelBuffer}${userRecentScore.user.username} !`, iconURL: `${userRecentScore.user.avatar_url}.jpeg` })
+            .setAuthor({ name: `Le score le plus récent ${voyelBuffer}${userRecentScore.user.username} !`, iconURL: `https://a.ppy.sh/${osuId}?.jpeg` })
             .setTitle(`${userRecentScore.beatmapset.title} [${userRecentScore.beatmap.version}] - ${userRecentScore.beatmap.difficulty_rating}*`)
             .setURL(`${userRecentScore.beatmap.url}`)
             .setDescription(`${getValue(rankTab, userRecentScore.rank)} **(${(userRecentScore.accuracy * 100).toPrecision(4)}%) +${modsBuffer}** *played* <t:${new Date(userRecentScore.created_at).getTime() / 1000}:R>\n**Score :** ${userRecentScore.score.toLocaleString()} **PP : ${ppAmount}**`)
