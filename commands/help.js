@@ -37,7 +37,7 @@ module.exports = {
             .setAuthor({ name: `Commandes Osu!`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
             .setDescription("Format type : `c![commande]`.")
             .addFields(
-                { name: '`OsuLink [ID de joueur osu]`', value: "Permet de lier votre compte osu à votre compte discord afin d'utiliser les autres commandes !" },
+                { name: '`OsuLink / olink / ol [ID de joueur osu]`', value: "Permet de lier votre compte osu à votre compte discord afin d'utiliser les autres commandes !" },
                 { name: '`recent / r / rs [nom de joueur osu / id de joueur osu (optionnel)]`', value: `Affiche votre dernier score osu en date ou celui de la personne donnée !` }
             )
 
