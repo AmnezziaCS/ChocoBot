@@ -41,7 +41,7 @@ module.exports = {
 
             // Checks if there is a username after the recent command, if there is one, do the command for that username
 
-            const osuUsername = args[0];
+            const osuUsername = args.join(' ');
             const osuUser = await getUser(osuUsername);
             if (osuUser === null) {
                 const wrongIDEmbed = new MessageEmbed()
@@ -71,7 +71,7 @@ module.exports = {
         if (!userRecentScore) {
             const noScoresEmbed = new MessageEmbed()
                 .setColor('#F8F70E')
-                .setAuthor({ name: `L'utilisateur n'a pas de scores récents !`, iconURL: `https://a.ppy.sh/${osuId}?.jpeg`})
+                .setAuthor({ name: `L'utilisateur n'a pas de scores récents !`, iconURL: `https://a.ppy.sh/${osuId}?.jpeg`, url: `https://osu.ppy.sh/users/${osuId}`})
             return message.channel.send({ embeds: [noScoresEmbed] });
         }
 
@@ -91,7 +91,7 @@ module.exports = {
 
         const recentScoreEmbed = new MessageEmbed()
             .setColor('#F8F70E')
-            .setAuthor({ name: `Le score le plus récent ${voyelBuffer}${userRecentScore.user.username} !`, iconURL: `https://a.ppy.sh/${osuId}?.jpeg` })
+            .setAuthor({ name: `Le score le plus récent ${voyelBuffer}${userRecentScore.user.username} !`, iconURL: `https://a.ppy.sh/${osuId}?.jpeg`, url: `https://osu.ppy.sh/users/${userRecentScore.user.id}` })
             .setTitle(`${userRecentScore.beatmapset.title} [${userRecentScore.beatmap.version}] - ${userRecentScore.beatmap.difficulty_rating}*`)
             .setURL(`${userRecentScore.beatmap.url}`)
             .setDescription(`${getValue(rankTab, userRecentScore.rank)} **(${(userRecentScore.accuracy * 100).toPrecision(4)}%) +${modsBuffer}** *played* <t:${new Date(userRecentScore.created_at).getTime() / 1000}:R>\n**Score :** ${userRecentScore.score.toLocaleString()} **PP : ${ppAmount}**`)
