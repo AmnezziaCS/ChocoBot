@@ -1,5 +1,5 @@
 # 🍫 ChocoBot :
-> A Work In Progress Discord bot. 
+> A Work In Progress Osu related Discord bot. 
 
 I will update this GitHub repo as the project goes on and according to my progress !
 
