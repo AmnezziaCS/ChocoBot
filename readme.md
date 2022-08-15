@@ -25,7 +25,8 @@ I will update this GitHub repo as the project goes on and according to my progre
 
 #### Osu :
 
-* `c!osuLink [osu ID]` : Links your osu account to your osu profile.
+* `c!osuLink / olink / ol [osu ID]` : Links your osu account to your osu profile.
+* `c!osuProfile / opr / osu [player username / player ID (optional)]` : Shows your or the player you mentionned osu profile.
 * `c!recent / r / rs [player username / player ID (optional)]` : Shows your or the player you mentionned last osu score. 
 
 #### Admin :

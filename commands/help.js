@@ -38,7 +38,8 @@ module.exports = {
             .setDescription("Format type : `c![commande]`.")
             .addFields(
                 { name: '`OsuLink / olink / ol [ID de joueur osu]`', value: "Permet de lier votre compte osu à votre compte discord afin d'utiliser les autres commandes !" },
-                { name: '`recent / r / rs [nom de joueur osu / id de joueur osu (optionnel)]`', value: `Affiche votre dernier score osu en date ou celui de la personne donnée !` }
+                { name: '`OsuProfile / opr / osu [nom de joueur osu / id de joueur osu (optionnel)]`', value: `Affiche votre profil ou celui de la personne donnée !` },
+                { name: '`Recent / r / rs [nom de joueur osu / id de joueur osu (optionnel)]`', value: `Affiche votre dernier score osu en date ou celui de la personne donnée !` }
             )
 
         let pages = [
