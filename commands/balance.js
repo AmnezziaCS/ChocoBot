@@ -51,7 +51,7 @@ module.exports = {
 
             const profileCreatedEmbed = new MessageEmbed()
                 .setColor('#F8F70E')
-                .setAuthor({ name: `Le profil de la personne mentionnée a été crée`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
+                .setAuthor({ name: `Le profil de la personne mentionnée a été créé`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
             return message.channel.send({ embeds: [profileCreatedEmbed] });
         }
 
