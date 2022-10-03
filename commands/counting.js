@@ -9,7 +9,7 @@ const helpEmbed = (message) => {
         .setTitle(`Counting`)
         .setDescription("La commande counting vous permet de compter dans l'ordre croissant, ceci dit, si vous faites une erreur, la chaîne se cassera et il faudra recommencer. !")
         .setFields(
-            { name: "`c!counting / count [help] [lb]`", value: "Le leaderboard global des record inter-serveurs est disponible en ajoutant [lb] après la commande !" },
+            { name: "`c!counting / count [help] [lb]`", value: "Le leaderboard global des records inter-serveurs est disponible en ajoutant [lb] après la commande !" },
         )
     return message.channel.send({ embeds: [helpEmbed] });
 }
@@ -75,9 +75,9 @@ const countingStartsEmbed = (message) => {
     const countingStartsEmbed = new MessageEmbed()
         .setColor('#F8F70E')    
         .setTitle(`L'événement de comptage à commencé !`)
-        .setDescription("Il vous faut maintenant compter de 1 en 1 sans faire d'erreur pour peut être battre le record du serveur !")
+        .setDescription("Il vous faut maintenant compter de 1 en 1 sans faire d'erreurs pour peut être battre le record du serveur !")
         .setFields(
-            { name: "For more infos", value: "`c!counting / count help`" },
+            { name: "Pour plus d'infos", value: "`c!counting / count help`" },
         )
     return message.channel.send({ embeds: [countingStartsEmbed] });
 }
