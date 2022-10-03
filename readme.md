@@ -14,6 +14,7 @@ I will update this GitHub repo as the project goes on and according to my progre
 * `c!meilleurmove` : elmoka59 vidéo.
 * `c!hocoball / ball [question ?]` : Works like an 8ball, will answer to your question with a magic answer.
 * `c!um` : d.. don't use this please.
+* `c!counting / count [help] [lb]` : This command allows you to start a counting game but can also show you the global couting leaderboard.
 
 #### Economy :
 

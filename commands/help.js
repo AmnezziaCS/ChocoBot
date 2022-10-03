@@ -19,7 +19,8 @@ module.exports = {
                 { name: '`Ounterratio`', value: `Contre le ratio ennemi !` },
                 { name: '`Meilleurmove`', value: `Le piii, le meill, Le meilleurrrrrr moooveeeeeee !` },
                 { name: '`Hocoball / ball [question ?]`', value: `Une question ? Demandez à la boule magique !` },
-                { name: '`Um`', value: `N'utilisez pas cette commande pitié 😳.` }
+                { name: '`Um`', value: `N'utilisez pas cette commande pitié 😳.` },
+                { name: '`Counting / count [help] [lb]`', value: `Permet de commencer une chaîne de counting ou de regarder le leaderboard associé.` }
             )
         const help2 = new MessageEmbed()
             .setColor('#F8F70E')
