@@ -1,56 +1,72 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
-const ProfileModel = require('../models/profileSchema');
-const getUser = require('../osuApi/getUser');
-
+const { MessageEmbed } = require("discord.js");
+const { SlashCommandBuilder } = require("@discordjs/builders");
+const ProfileModel = require("../models/profileSchema");
+const getUser = require("../osuApi/getUser");
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('osulink')
-        .setDescription('Links your osu id to your discord profile'),
-    aliases: ['olink', 'ol'],
-    async execute(client, message, args, profileData) {
+  data: new SlashCommandBuilder()
+    .setName("osulink")
+    .setDescription("Permet de lier votre profil osu à votre discord.")
+    .addStringOption((option) =>
+      option.setName("id").setDescription("L'id du profil osu à lier.")
+    )
+    .setDMPermission(false),
+  aliases: ["olink", "ol"],
+  async execute({ client: client, unifiedInteraction: unifiedInteraction }) {
+    let osuID;
 
-        let userFalse = false;
-        const osuID = args[0];
+    if (unifiedInteraction.type === "message") {
+      osuID = unifiedInteraction.options[0];
+    } else {
+      osuID = unifiedInteraction.options.getString("id");
+    }
 
-        // Checks if command is valid
+    // Checks if command is valid
 
-        if (!parseInt(osuID)) {
-            const osuLinkExplanationsEmbed = new MessageEmbed()
-                .setColor('#F8F70E')
-                .setTitle(`OsuLink`)
-                .setDescription("La commande osuLink vous permet de lier votre comtpe discord à votre ID de joueur osu trouvable sur votre profil.")
-                .setFields(
-                    { name: '`c!osuLink [ID de joueur osu]`', value: "Un ID incorrect ne sera pas pris en compte !" },
-                )
-            return message.channel.send({ embeds: [osuLinkExplanationsEmbed] });
-        }
+    if (!parseInt(osuID)) {
+      const osuLinkExplanationsEmbed = new MessageEmbed()
+        .setColor("#F8F70E")
+        .setTitle(`OsuLink`)
+        .setDescription(
+          "La commande osuLink vous permet de lier votre comtpe discord à votre ID de joueur osu trouvable sur votre profil."
+        )
+        .setFields({
+          name: "`c!osuLink [ID de joueur osu]`",
+          value: "Un ID incorrect ne sera pas pris en compte !",
+        });
+      return unifiedInteraction.message.reply({
+        embeds: [osuLinkExplanationsEmbed],
+      });
+    }
 
-        const user = await getUser(osuID);
+    const user = await getUser(osuID);
 
-        // Checks if user exists
+    // Checks if user exists
 
-        if (user === null) {
-            const wrongIDEmbed = new MessageEmbed()
-                .setColor('#F8F70E')
-                .setAuthor({ name: `Votre ID ${osuID} n'est pas valable, merci de choisir un ID correct !`, iconURL: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg` })
-            return message.channel.send({ embeds: [wrongIDEmbed] });
-        }
+    if (user === null) {
+      const wrongIDEmbed = new MessageEmbed().setColor("#F8F70E").setAuthor({
+        name: `Votre ID ${osuID} n'est pas valable, merci de choisir un ID correct !`,
+        iconURL: `https://cdn.discordapp.com/avatars/${unifiedInteraction.user.id}/${unifiedInteraction.user.avatar}.jpeg`,
+      });
+      return unifiedInteraction.message.reply({ embeds: [wrongIDEmbed] });
+    }
 
-        // Creates embed
+    // Creates embed
 
-        const osuLinkUpdate = await ProfileModel.findOneAndUpdate({
-            userID: message.author.id,
+    const osuLinkUpdate = await ProfileModel.findOneAndUpdate(
+      {
+        userID: unifiedInteraction.user.id,
+      },
+      {
+        $set: {
+          osuUserID: osuID,
         },
-            {
-                $set: {
-                    osuUserID: osuID,
-                }
-            });
-        const osuLinkFinalEmbed = new MessageEmbed()
-            .setColor('#F8F70E')
-            .setAuthor({ name: `Le compte osu ${user.username} a bien été lié à votre Discord !`, iconURL: `${user.avatar_url}.jpeg` })
-        return message.channel.send({ embeds: [osuLinkFinalEmbed] });
-    },
+      }
+    );
+    const osuLinkFinalEmbed = new MessageEmbed().setColor("#F8F70E").setAuthor({
+      name: `Le compte osu ${user.username} a bien été lié à votre Discord !`,
+      iconURL: `${user.avatar_url}.jpeg`,
+    });
+    return unifiedInteraction.message.reply({ embeds: [osuLinkFinalEmbed] });
+  },
 };

@@ -4,5 +4,5 @@ node_modules/
 // environment variables
 .env
 
-// json token file
+// json osu token file
 osuApi/token.json
