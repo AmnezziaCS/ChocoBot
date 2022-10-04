@@ -7,7 +7,7 @@ const helpEmbed = (message) => {
         .setColor('#F8F70E')
         .setThumbnail(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg`)
         .setTitle(`Counting`)
-        .setDescription("La commande counting vous permet de compter dans l'ordre croissant, ceci dit, si vous faites une erreur, la chaîne se cassera et il faudra recommencer. !")
+        .setDescription("La commande counting vous permet de compter dans l'ordre croissant, ceci dit, si vous faites une erreur, la chaîne se cassera et il faudra recommencer !")
         .setFields(
             { name: "`c!counting / count [help] [lb]`", value: "Le leaderboard global des records inter-serveurs est disponible en ajoutant [lb] après la commande !" },
         )
@@ -60,7 +60,7 @@ const lbEmbed =  async (message, client) => {
     lbString = `\`\`\` `
     for (i = 0; i < forSize; i++) {
         stringIfNotFirst = i === 0 ? `` : `\n\n `;
-        lbString += `${stringIfNotFirst}${i + 1} # ${fillTab[i].name} => ${sortedTab[0].record}`;
+        lbString += `${stringIfNotFirst}${i + 1} # ${fillTab[i].name} => ${sortedTab[i].record}`;
     }
     lbString += `${authorServerString}\`\`\``;
 
