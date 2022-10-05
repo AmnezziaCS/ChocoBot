@@ -3,6 +3,24 @@
 
 I will update this GitHub repo as the project goes on and according to my progress !
 
+## 🌌 Setup :
+
+### Git clone :
+>Before doing anything, you will have to get your local version of the bot (you will need both nodeJS and git). To do so :
+```sh
+git clone https://github.com/amnezziaa/ChocoBot.git
+cd .\ChocoBot\
+npm install
+```
+### Create your discord bot, your mongoDB server and fill in the env file :
+
+> You will then have to create a discord bot application, setup a mongoDB server and copy all the needed infos in a .env file. You can copy the example.env file content and replace the void with your values.
+
+### Create your token.json file in osuApi :
+> Copy the tokenExample.json file and rename it to token.json
+
+### Run the bot :
+> You can now execute the command `node .` in the directory which should launch the bot. If you encounter a problem, you can try to contact me on discord : Amnezzia#3632
 ## 🖱️ Available commands :
 
 #### Base :
