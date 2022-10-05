@@ -17,7 +17,7 @@ module.exports = {
         name: `Commandes Basiques`,
         iconURL: `https://cdn.discordapp.com/avatars/${avatarUrl}.jpeg`,
       })
-      .setDescription("Format type : `c![commande]`.")
+      .setDescription("Format type : `c![commande]` ou `/commande`")
       .addFields(
         { name: "`Hocobo`", value: "Me fait apparaître !" },
         {
@@ -45,7 +45,7 @@ module.exports = {
         name: `Commandes Banquières`,
         iconURL: `https://cdn.discordapp.com/avatars/${avatarUrl}.jpeg`,
       })
-      .setDescription("Format type : `c![commande]`.")
+      .setDescription("Format type : `c![commande]` ou `/commande`.")
       .addFields(
         {
           name: "`Balance / bl / bal / b [mention de la personne voulue (optionnel)]`",
@@ -75,7 +75,7 @@ module.exports = {
         name: `Commandes Osu!`,
         iconURL: `https://cdn.discordapp.com/avatars/${avatarUrl}.jpeg`,
       })
-      .setDescription("Format type : `c![commande]`.")
+      .setDescription("Format type : `c![commande]` ou `/commande`.")
       .addFields(
         {
           name: "`OsuLink / olink / ol [ID de joueur osu]`",
