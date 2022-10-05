@@ -1,10 +1,13 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('hocobo')
-        .setDescription('Chocobo !'),
-    execute(client, message, args) {
-        return message.channel.send('https://tenor.com/view/alpha-ffxiv-chocobo-alphabestboi-gif-19909966');
-    },
+  data: new SlashCommandBuilder()
+    .setName("hocobo")
+    .setDescription("Me fait apparaître !")
+    .setDMPermission(false),
+  execute({ client: client, unifiedInteraction: unifiedInteraction }) {
+    return unifiedInteraction.message.reply(
+      "https://tenor.com/view/alpha-ffxiv-chocobo-alphabestboi-gif-19909966"
+    );
+  },
 };
