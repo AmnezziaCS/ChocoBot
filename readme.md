@@ -17,11 +17,13 @@ npm install
 > You will then have to create a discord bot application, setup a mongoDB server and copy all the needed infos in a .env file. You can copy the example.env file content and replace the void with your values.
 
 ### Create your token.json file in osuApi :
-> Copy the tokenExample.json file and rename it to token.json
+> Copy the tokenExample.json file and rename it to token.json.
 
 ### Run the bot :
 > You can now execute the command `node .` in the directory which should launch the bot. If you encounter a problem, you can try to contact me on discord : Amnezzia#3632
 ## 🖱️ Available commands :
+
+Commands are usable both textually and using slash.
 
 #### Base :
 

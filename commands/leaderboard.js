@@ -19,7 +19,7 @@ const sortTabByChococoinsAsc = (all) => {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("leaderboard")
-    .setDescription("Displays the chococoins leaderboard !")
+    .setDescription("Affiche le leaderboard global des chococoins !")
     .setDMPermission(false),
   aliases: ["lb"],
   async execute({

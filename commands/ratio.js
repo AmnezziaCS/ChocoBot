@@ -7,7 +7,7 @@ module.exports = {
     .addUserOption((option) =>
       option
         .setName("utilisateur")
-        .setDescription("La mention de la personne à ratio")
+        .setDescription("La mention de la personne à ratio.")
         .setRequired(true)
     )
     .setDMPermission(false),

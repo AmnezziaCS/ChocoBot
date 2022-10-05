@@ -10,12 +10,12 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("bet")
     .setDescription(
-      `Cette commande permet de miser une somme d'argent pour soit la doubler soit la perdre!`
+      `Cette commande permet de miser une somme d'argent pour soit la doubler soit la perdre !`
     )
     .addIntegerOption((option) =>
       option
         .setName("chococoins")
-        .setDescription("La somme d'argent à miser")
+        .setDescription("La somme d'argent à miser.")
         .setRequired(true)
     )
     .setDMPermission(false),

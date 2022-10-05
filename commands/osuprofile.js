@@ -24,7 +24,7 @@ module.exports = {
       option
         .setName("utilisateur")
         .setDescription(
-          "Le pseudo ou id de la personne dont vous souhaitez voir le profil osu"
+          "Le pseudo ou id de la personne dont vous souhaitez voir le profil osu."
         )
     )
     .setDMPermission(false),

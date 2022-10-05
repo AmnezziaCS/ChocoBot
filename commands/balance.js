@@ -12,7 +12,7 @@ module.exports = {
       option
         .setName("utilisateur")
         .setDescription(
-          "La mention de la personne dont vous souhaitez consulter la monnaie"
+          "La mention de la personne dont vous souhaitez consulter la monnaie."
         )
     )
     .setDMPermission(false),

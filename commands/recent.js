@@ -29,7 +29,7 @@ module.exports = {
       option
         .setName("utilisateur")
         .setDescription(
-          "Le pseudo ou id de la personne dont vous souhaitez voir le dernier play"
+          "Le pseudo ou id de la personne dont vous souhaitez voir le dernier play."
         )
     )
     .setDMPermission(false),

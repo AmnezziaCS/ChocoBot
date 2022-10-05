@@ -41,7 +41,7 @@ module.exports = {
     .addUserOption((option) =>
       option
         .setName("utilisateur")
-        .setDescription("La mention de la personne que vous souhaitez voler")
+        .setDescription("La mention de la personne que vous souhaitez voler.")
         .setRequired(true)
     )
     .setDMPermission(false),

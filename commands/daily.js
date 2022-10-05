@@ -5,7 +5,7 @@ const ProfileModel = require("../models/profileSchema");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("daily")
-    .setDescription("Permet de récupérer des ChocoCoins chaque jour")
+    .setDescription("Permet de récupérer des ChocoCoins chaque jour.")
     .setDMPermission(false),
   aliases: ["d"],
   async execute({

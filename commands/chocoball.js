@@ -13,7 +13,7 @@ module.exports = {
       option
         .setName("question")
         .setDescription(
-          "La question à poser à la boule magique. (n'oubliez pas le point d'interrogation)"
+          "La question à poser à la boule magique. Un point d'interrogation est obligatoire !"
         )
         .setRequired(true)
     )
