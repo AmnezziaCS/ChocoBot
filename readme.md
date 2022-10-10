@@ -1,6 +1,8 @@
 # 🍫 ChocoBot :
 > A Work In Progress Osu related Discord bot. 
 
+**If you want to invite the bot to your server** : [Link here](https://discord.com/api/oauth2/authorize?client_id=893457417675886602&permissions=534723815488&scope=bot) 
+
 I will update this GitHub repo as the project goes on and according to my progress !
 
 ## 🌌 Setup :
