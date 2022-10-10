@@ -27,7 +27,7 @@ module.exports = {
       content = unifiedInteraction.message.content;
     } else {
       content = unifiedInteraction.options.getString("question");
-      questionPlaceholder = `Question : \`${content}\` -> `;
+      questionPlaceholder = `Question : **${content}** \`->\` `;
     }
 
     if (!content.includes("?")) {
