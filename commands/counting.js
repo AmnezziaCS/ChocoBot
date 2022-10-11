@@ -65,11 +65,12 @@ const lbEmbed = async (unifiedInteraction, client) => {
   fillTab = new Array();
   forSize = sortedTab.length <= 10 ? sortedTab.length : 10;
   for (i = 0; i < forSize; i++) {
-    fillTab.push(await fetchServer(sortedTab, i));
+    if (client.guilds.cache.has(sortedTab[i].id))
+      fillTab.push(await fetchServer(sortedTab, i));
   }
 
   lbString = `\`\`\` `;
-  for (i = 0; i < forSize; i++) {
+  for (i = 0; i < fillTab.length; i++) {
     stringIfNotFirst = i === 0 ? `` : `\n\n `;
     lbString += `${stringIfNotFirst}${i + 1} # ${fillTab[i].name} => ${
       sortedTab[i].record
