@@ -14,7 +14,7 @@ const rankTab = {
   D: "<:D:971030365684793354>",
 };
 
-const voyelTab = ["a", "e", "i", "o", "u", "y"];
+const voyelTab = ["a", "e", "i", "o", "u"];
 
 module.exports = {
   data: new SlashCommandBuilder()
