@@ -31,7 +31,7 @@ const lbEmbed = async (unifiedInteraction, client) => {
       tab.push(pair);
     });
 
-    tab.sort((a, b) => parseFloat(b.coins) - parseFloat(a.coins));
+    tab.sort((a, b) => parseFloat(b.record) - parseFloat(a.record));
     return tab;
   };
 
