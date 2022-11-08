@@ -75,7 +75,7 @@ module.exports = {
     const osuUser = await getUser(osuId);
     if (osuUser === null) {
       const wrongIDEmbed = new MessageEmbed().setColor("#F8F70E").setAuthor({
-        name: `Le joueur que vous avez spécifié n'existe pas !`,
+        name: `Le joueur ${osuId} n'existe pas !`,
         iconURL: `https://cdn.discordapp.com/avatars/${avatarUrl}.jpeg`,
       });
       return unifiedInteraction.message.reply({ embeds: [wrongIDEmbed] });
