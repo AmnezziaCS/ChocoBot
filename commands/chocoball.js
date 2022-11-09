@@ -1,9 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
+const getRandomInt = require("../utils/getRandomInt");
 
 module.exports = {
   data: new SlashCommandBuilder()

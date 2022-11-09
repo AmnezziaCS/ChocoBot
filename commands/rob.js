@@ -1,10 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const ProfileModel = require("../models/profileSchema");
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
+const getRandomInt = require("../utils/getRandomInt");
 
 const updateAuthorChocoCoins = async (value, unifiedInteraction) => {
   const balanceUpdate = await ProfileModel.findOneAndUpdate(
