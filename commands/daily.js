@@ -73,7 +73,7 @@ module.exports = {
     const dailySuccessfullEmbed = new MessageEmbed()
       .setColor("#F8F70E")
       .setThumbnail(`https://cdn.discordapp.com/avatars/${avatarUrl}.jpeg`)
-      .setTitle(`Votre compte à bien été crédité de 2000 ChocoCoins`)
+      .setTitle(`Votre compte a bien été crédité de 2000 ChocoCoins`)
       .setFields({
         name: `Nouveau montant de ChocoCoins : `,
         value: `${profileData.chococoins + 2000} ©`,

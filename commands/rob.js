@@ -71,7 +71,7 @@ module.exports = {
         .setColor("#F8F70E")
         .setTitle(`Rob`)
         .setDescription(
-          "La commande rob vous permet de voler des ChocoCoins à la personne mentionnée. Ceci dit, garre à ne pas vous faire prendre ou vous le regretterez !"
+          "La commande rob vous permet de voler des ChocoCoins à la personne mentionnée. Ceci dit, gare à ne pas vous faire prendre ou vous le regretterez !"
         )
         .setFields({
           name: "`c!rob [mention de la personne à voler]`",
@@ -124,7 +124,7 @@ module.exports = {
       const notEnoughMoneyEmbed = new MessageEmbed()
         .setColor("#F8F70E")
         .setAuthor({
-          name: `Vous ou la personne que vous avez essayé de rob posséde moins de 1000 ChocoCoins, par conséquent, vous ne pouvez utiliser cette commande !`,
+          name: `Vous ou la personne que vous avez essayé de rob possède moins de 1000 ChocoCoins, par conséquent, vous ne pouvez utiliser cette commande !`,
           iconURL: `https://cdn.discordapp.com/avatars/${avatarUrl}.jpeg`,
         });
       return unifiedInteraction.message.reply({

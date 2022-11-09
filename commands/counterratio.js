@@ -2,9 +2,10 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("ounterratio")
-    .setDescription("Permet de soutenir qqun dans son contre ratio !")
+    .setName("counterratio")
+    .setDescription("Permet de soutenir quelqu'un dans son contre ratio !")
     .setDMPermission(false),
+  aliases: ["ounterratio"],
   execute({ client: client, unifiedInteraction: unifiedInteraction }) {
     return unifiedInteraction.message
       .reply({

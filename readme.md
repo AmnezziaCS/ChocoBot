@@ -30,13 +30,14 @@ Commands are usable both textually and using slash.
 #### Base :
 
 * `c!help` : Shows the command embed.
-* `c!hocobo` : Makes Chocobo appears.
+* `c!chocobo` : Makes Chocobo appears.
 * `c!ratio [mention of the target]` : Allows you to ratio anyone.
-* `c!ounterratio` : Counters the previous ratio.
+* `c!counterratio` : Counters the previous ratio.
 * `c!meilleurmove` : elmoka59 vidéo.
 * `c!hocoball / ball [question ?]` : Works like an 8ball, will answer to your question with a magic answer.
-* `c!um` : d.. don't use this please.
-* `c!counting / count [help] [lb]` : This command allows you to start a counting game but can also show you the global couting leaderboard.
+* `c!cum` : d.. don't use this please.
+* `c!counting / count [help (optional)] [lb (optional)]` : This command allows you to start a counting game but can also show you the global couting leaderboard.
+* `c!counting / count [help (optional)]` :  This command allows you to fish to try and gain ChocoCoins.
 
 #### Economy :
 

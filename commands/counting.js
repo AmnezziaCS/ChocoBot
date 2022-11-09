@@ -91,9 +91,9 @@ const lbEmbed = async (unifiedInteraction, client) => {
 const countingStartsEmbed = (unifiedInteraction) => {
   const countingStartsEmbed = new MessageEmbed()
     .setColor("#F8F70E")
-    .setTitle(`L'événement de comptage à commencé !`)
+    .setTitle(`L'événement de comptage a commencé !`)
     .setDescription(
-      "Il vous faut maintenant compter de 1 en 1 sans faire d'erreurs pour peut être battre le record du serveur !"
+      "Il vous faut maintenant compter de 1 en 1 sans faire d'erreurs pour peut-être battre le record du serveur !"
     )
     .setFields({
       name: "Pour plus d'infos",
@@ -132,7 +132,7 @@ module.exports = {
         )
     )
     .setDMPermission(false),
-  aliases: ["count"],
+  aliases: ["count", "ounting"],
   async execute({ client: client, unifiedInteraction: unifiedInteraction }) {
     if (unifiedInteraction.type === "message") {
       if (unifiedInteraction.options[0] === "help") {

@@ -28,7 +28,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("give")
     .setDescription(
-      "Permet de give des chococoins, cette commande est résérvée à l'admin du bot Amnezzia#3632"
+      "Permet de give des chococoins, cette commande est réservée à l'admin du bot Amnezzia#3632"
     )
     .addIntegerOption((option) =>
       option
@@ -167,7 +167,7 @@ module.exports = {
               `https://cdn.discordapp.com/avatars/${target.id}/${target.avatar}.jpeg`
             )
             .setTitle(
-              `Le compte de ${target.username} à bien été crédité de ${moneyAmount} ChocoCoins`
+              `Le compte de ${target.username} a bien été crédité de ${moneyAmount} ChocoCoins`
             )
             .setFields({
               name: `Nouveau montant de ChocoCoins : `,
@@ -194,7 +194,7 @@ module.exports = {
               `https://cdn.discordapp.com/avatars/${target.id}/${target.avatar}.jpeg`
             )
             .setTitle(
-              `Le compte de ${target.username} à bien été débité de ${moneyAmount} ChocoCoins`
+              `Le compte de ${target.username} a bien été débité de ${moneyAmount} ChocoCoins`
             )
             .setFields({
               name: `Nouveau montant de ChocoCoins : `,
