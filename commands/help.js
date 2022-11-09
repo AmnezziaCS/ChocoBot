@@ -19,23 +19,23 @@ module.exports = {
       })
       .setDescription("Format type : `c![commande]` ou `/commande`")
       .addFields(
-        { name: "`Hocobo`", value: "Me fait apparaître !" },
+        { name: "`Chocobo`", value: "Me fait apparaître !" },
         {
           name: "`Ratio [mention de la personne voulue]`",
           value: `Ratio la personne mentionnée !`,
         },
-        { name: "`Ounterratio`", value: `Contre le ratio ennemi !` },
+        { name: "`Counterratio`", value: `Contre le ratio ennemi !` },
         {
           name: "`Meilleurmove`",
           value: `Le piii, le meill, Le meilleurrrrrr moooveeeeeee !`,
         },
         {
-          name: "`Hocoball / ball [question ?]`",
+          name: "`Chocoball / ball [question ?]`",
           value: `Une question ? Demandez à la boule magique !`,
         },
-        { name: "`Um`", value: `N'utilisez pas cette commande pitié 😳.` },
+        { name: "`Cum`", value: `N'utilisez pas cette commande pitié 😳.` },
         {
-          name: "`Counting / count [help] [lb]`",
+          name: "`Counting / count [help (optionnel)] [lb (optionnel)]`",
           value: `Permet de commencer une chaîne de counting ou de regarder le leaderboard associé.`,
         }
       );
@@ -67,6 +67,10 @@ module.exports = {
         {
           name: "`Bet [somme mise en jeu]`",
           value: `Lancement d'un dé, soit la somme misée est doublée soit elle est perdue à jamais !`,
+        },
+        {
+          name: "`Fish [help (optionnel)]`",
+          value: `La commande fish vous permet de pêcher pour essayer de gagner des chococoins !`,
         }
       );
     const help3 = new MessageEmbed()

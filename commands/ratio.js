@@ -41,7 +41,7 @@ module.exports = {
 
     if (`<@${unifiedInteraction.user.id}>` === target) {
       return unifiedInteraction.message.reply(
-        `Tu veux te ratio toi même, bizarre <:Thonk:665296573294706749>`
+        `Tu veux te ratio toi-même, bizarre <:Thonk:665296573294706749>`
       );
     }
 

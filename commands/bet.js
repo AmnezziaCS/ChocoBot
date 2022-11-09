@@ -44,7 +44,7 @@ module.exports = {
           .setColor("#F8F70E")
           .setTitle(`Bet`)
           .setDescription(
-            "La commande bet vous permet de miser une somme d'argent pour espérer en récupérer le double. ceci dit, faites attention à ne pas perdre votre mise !"
+            "La commande bet vous permet de miser une somme d'argent pour espérer en récupérer le double. Ceci dit, faites attention de ne pas perdre votre mise !"
           )
           .setFields({
             name: "`c!bet [valeur en ChocoCoins]`",
@@ -96,7 +96,7 @@ module.exports = {
           iconURL: `https://cdn.discordapp.com/avatars/${avatarUrl}.jpeg`,
         })
         .setFields({
-          name: `Votre avez bet ${betValue} ChocoCoins alors que vous n'en possédez que: `,
+          name: `Votre avez bet ${betValue} ChocoCoins alors que vous n'en possédez que : `,
           value: `${profileData.chococoins} ©`,
         });
       return unifiedInteraction.message.reply({
@@ -123,7 +123,7 @@ module.exports = {
           .setThumbnail(`https://cdn.discordapp.com/avatars/${avatarUrl}.jpeg`)
           .setTitle(`Bravo, vous avez gagné !`)
           .setFields({
-            name: `Votre compte à été crédité de ${betValue} ChocoCoins, votre nouveau montant de ChocoCoins est : `,
+            name: `Votre compte a été crédité de ${betValue} ChocoCoins, votre nouveau montant de ChocoCoins est : `,
             value: `${profileData.chococoins + parseInt(betValue)} ©`,
           });
         return unifiedInteraction.message.reply({
@@ -143,7 +143,7 @@ module.exports = {
         const accountDecreasedByBetEmbed = new MessageEmbed()
           .setColor("#F8F70E")
           .setThumbnail(`https://cdn.discordapp.com/avatars/${avatarUrl}.jpeg`)
-          .setTitle(`Nonnn, vous avez perdu !`)
+          .setTitle(`Non, vous avez perdu !`)
           .setFields({
             name: `Votre compte à été débité de ${betValue} ChocoCoins, votre nouveau montant de ChocoCoins est : `,
             value: `${profileData.chococoins - parseInt(betValue)} ©`,
