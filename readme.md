@@ -11,7 +11,7 @@ I will update this GitHub repo as the project goes on and according to my progre
 >Before doing anything, you will have to get your local version of the bot (you will need both nodeJS and git). To do so :
 ```sh
 git clone https://github.com/amnezziaa/ChocoBot.git
-cd .\ChocoBot\
+cd ./ChocoBot/
 npm install
 ```
 ### Create your discord bot, your mongoDB server and fill in the env file :
