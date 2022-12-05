@@ -5,7 +5,7 @@
 
 I will update this GitHub repo as the project goes on and according to my progress !
 
-## Setup 🌌 :
+## Setup 🚀 :
 
 ### Git clone :
 >Before doing anything, you will have to get your local version of the bot (you will need both nodeJS and git). To do so :
