@@ -1,11 +1,11 @@
-# 🍫 ChocoBot :
+# ChocoBot 🍫
 > A Work In Progress Osu related Discord bot. 
 
 **If you want to invite the bot to your server** : [Link here](https://discord.com/api/oauth2/authorize?client_id=893457417675886602&permissions=534723815488&scope=bot) 
 
 I will update this GitHub repo as the project goes on and according to my progress !
 
-## 🌌 Setup :
+## Setup 🌌 :
 
 ### Git clone :
 >Before doing anything, you will have to get your local version of the bot (you will need both nodeJS and git). To do so :
@@ -23,7 +23,7 @@ npm install
 
 ### Run the bot :
 > You can now execute the command `node .` in the directory which should launch the bot. If you encounter a problem, you can try to contact me on discord : Amnezzia#3632
-## 🖱️ Available commands :
+## Available commands 🖱️ :
 
 Commands are usable both textually and using slash.
 
