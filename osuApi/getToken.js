@@ -11,14 +11,15 @@ const getToken = async () => {
     scope: "public",
   };
 
+  const timeDiference =
+    new Date().getTime() - new Date(jsonObject.osuTokenDate).getTime();
+
   // If token is still alive, we reuse it
 
   if (
-    new Date().getTime() - new Date(jsonObject.osuTokenDate).getTime() <
+    timeDiference <
     80000000
   ) {
-    const timeDiference =
-      new Date().getTime() - new Date(jsonObject.osuTokenDate).getTime();
     console.log(
       `Last osu token still alive, ${80000 - timeDiference / 1000}s left`
     );
