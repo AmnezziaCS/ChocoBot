@@ -1,5 +1,4 @@
 const ProfileModel = require("../../models/profileSchema");
-const newDate = require("../../utils/newDate");
 
 module.exports = async (client, interaction) => {
   if (!interaction.type === "APPLICATION_COMMAND") return;
@@ -20,10 +19,15 @@ module.exports = async (client, interaction) => {
     console.log(err);
   }
 
+  let parameterBuffer = "";
+  interaction.options._hoistedOptions.forEach((parameter) => {
+    parameterBuffer += ` [${parameter.name}: ${parameter.value}]`;
+  });
+
   console.log(
-    `${newDate(new Date())}${interaction.user.username}#${
+    `${new Date().toLocaleString()} ${interaction.user.username}#${
       interaction.user.discriminator
-    } : /${interaction.commandName}`
+    } : /${interaction.commandName}${parameterBuffer}`
   );
 
   const command =

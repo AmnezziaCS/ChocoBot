@@ -1,5 +1,4 @@
 const ProfileModel = require("../../models/profileSchema");
-const newDate = require("../../utils/newDate");
 
 module.exports = async (client, message) => {
   const prefix = process.env.PREFIX;
@@ -23,7 +22,7 @@ module.exports = async (client, message) => {
   }
 
   console.log(
-    `${newDate(message.createdAt)}${message.author.username}#${
+    `${new Date().toLocaleString()} ${message.author.username}#${
       message.author.discriminator
     } : ${message}`
   );
