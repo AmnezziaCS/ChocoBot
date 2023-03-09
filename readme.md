@@ -1,58 +1,105 @@
 # ChocoBot 🍫
-> A Work In Progress Osu related Discord bot. 
 
-**If you want to invite the bot to your server** : [Link here](https://discord.com/api/oauth2/authorize?client_id=893457417675886602&permissions=534723815488&scope=bot) 
+> A Work In Progress Osu related Discord bot.
 
-I will update this GitHub repo as the project goes on and according to my progress !
+## Resources
 
-## Setup 🚀 :
+- [Bot invitation link](https://discord.com/api/oauth2/authorize?client_id=893457417675886602&permissions=534723815488&scope=bot)
 
-### Git clone :
->Before doing anything, you will have to get your local version of the bot (you will need both nodeJS and git). To do so :
+## Setup
+
+### Git clone
+
+Before doing anything, you will have to get your local version of the bot (you will need both [nodeJS](https://nodejs.org/en/) and [git](https://git-scm.com/)). Then :
+
 ```sh
 git clone https://github.com/amnezziaa/ChocoBot.git
 cd ./ChocoBot/
 npm install
 ```
-### Create your discord bot, your mongoDB server and fill in the env file :
 
-> You will then have to create a discord bot application, setup a mongoDB server and copy all the needed infos in a .env file. You can copy the example.env file content and replace the void with your values.
+### Create your discord bot
 
-### Create your token.json file in osuApi :
-> Copy the tokenExample.json file and rename it to token.json.
+You can follow [this page](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot) from the Discord JS documentation.
 
-### Run the bot :
-> You can now execute the command `node .` in the directory which should launch the bot. If you encounter a problem, you can try to contact me on discord : Amnezzia#3632
-## Available commands 🖱️ :
+### Create your MongoDB app
 
-Commands are usable both textually and using slash.
+You can follow [this page](https://www.mongodb.com/docs/atlas/app-services/apps/create/) from the MongoDB documentation.
 
-#### Base :
+### Create your osu app
 
-* `c!help` : Shows the command embed.
-* `c!chocobo` : Makes Chocobo appears.
-* `c!ratio [mention of the target]` : Allows you to ratio anyone.
-* `c!counterratio` : Counters the previous ratio.
-* `c!meilleurmove` : elmoka59 vidéo.
-* `c!hocoball / ball [question ?]` : Works like an 8ball, will answer to your question with a magic answer.
-* `c!cum` : d.. don't use this please.
-* `c!counting / count [help (optional)] [lb (optional)]` : This command allows you to start a counting game but can also show you the global couting leaderboard.
-* `c!counting / count [help (optional)]` :  This command allows you to fish to try and gain ChocoCoins.
+You will have to create an osu app on [this page](https://osu.ppy.sh/home/account/edit#oauth).
 
-#### Economy :
+### Fill in the .env file
 
-* `c!balance / bl / bal / b [mention of the target (optional)]` : Allows you to check your balance of ChocoCoins.
-* `c!leaderboard / lb` : Shows the ChocoCoins Leaderboard.
-* `daily / d` : Gives you 2000 free ChocoCoins everyday.
-* `c!rob [mention of the target]` : Allows you to steal someone's ChocoCoins.
-* `c!bet [bet amount]` : Allows you to bet a certain amount of ChocoCoins to either win its double or lose it all.
+You will need these values :
 
-#### Osu :
+- `DISCORD_BOT_ID` : From the [discord application](https://discord.com/developers/applications) page.
+- `DISCORD_TOKEN` : From the [discord application](https://discord.com/developers/applications) page.
+- `BOT_OWNER_ID` : Your discord user ID, can be right clicking your profile with developer mode allowed.
+- `MONGODB_SRV` : Your MongoDB server token.
+- `OSU_API_ID` = Your osu API ID, can be found on [this page](https://osu.ppy.sh/home/account/edit#oauth).
+- `OSU_API_SECRET` : Your osu API Token, can be found on [this page](https://osu.ppy.sh/home/account/edit#oauth).
 
-* `c!osuLink / olink / ol [osu ID]` : Links your osu account to your osu profile.
-* `c!osuProfile / opr / osu [player username / player ID (optional)]` : Shows your or the player you mentionned osu profile.
-* `c!recent / r / rs [player username / player ID (optional)]` : Shows your or the player you mentionned last osu score. 
+Once acquired, fill in the `example.env` file and rename it to `.env`. As for the already given values, don't worry about them unless you really want to play around with the bot.
 
-#### Admin :
+- `PREFIX = c!` : Command prefix
+- `BOT_NEEDED_PERMISSION_ID = 398023060544` : Permission float.
+- `OSU_API_URL = https://osu.ppy.sh/api/v2` : This value shouldn't be touched.
+- `OSU_TOKEN_URL = https://osu.ppy.sh/oauth/token` : This value shouldn't be touched.
 
-* `c!give [value of coins] [mention of the target]` : Allows you to give or remove X amount of ChocoCoins to a particular user.
+### Create your token.json file in osuApi
+
+Simply rename the `tokenExample.json` file to `token.json`.
+
+### Run the bot
+
+You should now be able to run the bot flawlessly :
+
+```sh
+node .
+```
+
+### Troubleshooting
+
+If you encounter any problems, make sure the `.env` file is filled with the right values and that your `token.json` file exists in the `/osuApi` directory. That being said, if you still have issues, do not hesitate to create an issue in this repository. I will look into it.
+
+## Commands
+
+Commands are usable both **textually** and using **slash**.
+
+### Base
+
+- `help` : Returns the help embed.
+- `chocobo` : Makes Chocobo appear.
+- `ratio [targeted user]` : Allows you to ratio somebody.
+- `counterratio` : Counters the previous ratio.
+- `meilleurmove` : Elmoka59 video.
+- `hocoball [question]` : Works like an 8ball, will give you a magic answer.
+- `cum` : 😳.
+- `counting [help (optional)] [lb (optional)]` : Starts a counting game / Displays the counting leaderboard.
+- `counting [help (optional)]` :  Starts a fish minigame that can award ChocoCoins.
+
+### Economy
+
+- `balance [mention of the target (optional)]` : Allows you to check your ChocoCoins balance.
+- `leaderboard` : Displays the ChocoCoins leaderboard.
+- `daily` : Gives the user 2000 ChocoCoins, only usable once a day.
+- `rob [mention of the target]` : Allows you to steal someone's ChocoCoins.
+- `bet [bet amount]` : 1/2 chance to double your money or lose it all.
+
+### Osu
+
+- `osuLink [osu ID]` : Links the user to his osu profile.
+- `osuProfile [player username / player ID (optional)]` : Shows an osu profile.
+- `recent [player username / player ID (optional)]` : Shows the last non failed osu score.
+
+### Admin
+
+- `give [value of coins] [mention of the target]` : Allows you to give or remove X amount of ChocoCoins to a particular user.
+
+## Documentation
+
+- [DiscordJS documentation](https://discord.js.org/#/docs/discord.js/main/general/welcome)
+- [MongoDB documentation](https://www.mongodb.com/docs/)
+- [Osu API documentation](https://osu.ppy.sh/docs/index.html)
