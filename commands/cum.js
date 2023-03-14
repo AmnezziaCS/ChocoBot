@@ -1,5 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
+const emojiArray = ["😳", "🍆", "👌", "💦"];
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("cum")
@@ -11,9 +13,8 @@ module.exports = {
       return unifiedInteraction.message.reply(
         "Cette commande ne marche que en l'écrivant tel que `c!um` 😳."
       );
-    unifiedInteraction.message.react(`😳`);
-    unifiedInteraction.message.react(`🍆`);
-    unifiedInteraction.message.react(`👌`);
-    unifiedInteraction.message.react(`💦`);
+    emojiArray.forEach((emoji) => {
+      unifiedInteraction.message.react(emoji);
+    })
   },
 };
