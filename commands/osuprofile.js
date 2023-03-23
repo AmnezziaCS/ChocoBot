@@ -14,7 +14,7 @@ const rankTab = {
   D: "<:D:971030365684793354>",
 };
 
-const voyelTab = ["a", "e", "i", "o", "u"];
+const voyelArray = ["a", "e", "i", "o", "u"];
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -81,17 +81,10 @@ module.exports = {
       return unifiedInteraction.message.reply({ embeds: [wrongIDEmbed] });
     }
 
-    let voyelBuffer = "de ";
-    voyelTab.forEach((element) => {
-      if (osuUser.username[0].toLowerCase().includes(element)) {
-        return (voyelBuffer = "d'");
-      }
-    });
-
     const recentScoreEmbed = new MessageEmbed()
       .setColor("#F8F70E")
       .setAuthor({
-        name: `Voici le profil osu ${voyelBuffer}${osuUser.username} !`,
+        name: `Voici le profil osu ${voyelArray.includes(osuUser.username[0].toLowerCase()) ? "d'" : "de "}${osuUser.username} !`,
         iconURL: `https://flagpedia.net/data/flags/icon/120x90/${osuUser.country_code.toLowerCase()}.webp`,
         url: `https://osu.ppy.sh/users/${osuUser.id}`,
       })

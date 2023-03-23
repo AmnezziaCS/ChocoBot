@@ -19,7 +19,7 @@ const rankTab = {
   D: "<:D:971030365684793354>",
 };
 
-const voyelTab = ["a", "e", "i", "o", "u", "y"];
+const voyelArray = ["a", "e", "i", "o", "u", "y"];
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -108,19 +108,12 @@ module.exports = {
 
     const modsBuffer = userRecentScore.mods.join("") || "Nomod";
 
-    let voyelBuffer = "de ";
-    voyelTab.forEach((element) => {
-      if (userRecentScore.user.username[0].toLowerCase().includes(element)) {
-        return (voyelBuffer = "d'");
-      }
-    });
-
     // Create the embed
 
     const recentScoreEmbed = new MessageEmbed()
       .setColor("#F8F70E")
       .setAuthor({
-        name: `Le score le plus récent ${voyelBuffer}${userRecentScore.user.username} !`,
+        name: `Le score le plus récent ${voyelArray.includes(userRecentScore.user.username[0].toLowerCase()) ? "d'" : "de "}${userRecentScore.user.username} !`,
         iconURL: `https://a.ppy.sh/${osuId}?.jpeg`,
         url: `https://osu.ppy.sh/users/${userRecentScore.user.id}`,
       })

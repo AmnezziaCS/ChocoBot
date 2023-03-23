@@ -2,6 +2,18 @@ const { MessageEmbed } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const getRandomInt = require("../utils/getRandomInt");
 
+const answerTab = [
+  "Redemandez plus tard <:pepoG:948676211213758474>",
+  "Certainement <:Thonk:665296573294706749>",
+  "Absolument <:D_:842898126645362758> !!!",
+  "Je n'en suis pas certain <:hmmmm:898672241787674634>",
+  "Pas du tout <a:NOPERS:804801139702628392>",
+  "Je ne me prononcerais pas <:YEP:800841093515444244>",
+  "Non <a:NOPERS:804801139702628392>",
+  "Concentrez vous et re-demandez <:pepoG:948676211213758474>",
+  "Oui <a:NODDERS:804418094625718362>",
+];
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("chocoball")
@@ -43,18 +55,6 @@ module.exports = {
         embeds: [chocoballExplanationsEmbed],
       });
     }
-
-    const answerTab = [
-      "Redemandez plus tard <:pepoG:948676211213758474>",
-      "Certainement <:Thonk:665296573294706749>",
-      "Absolument <:D_:842898126645362758> !!!",
-      "Je n'en suis pas certain <:hmmmm:898672241787674634>",
-      "Pas du tout <a:NOPERS:804801139702628392>",
-      "Je ne me prononcerais pas <:YEP:800841093515444244>",
-      "Non <a:NOPERS:804801139702628392>",
-      "Concentrez vous et re-demandez <:pepoG:948676211213758474>",
-      "Oui <a:NODDERS:804418094625718362>",
-    ];
 
     return unifiedInteraction.message.reply(
       `${questionPlaceholder}` + answerTab[getRandomInt(9)]
