@@ -15,7 +15,7 @@ Before doing anything, you will have to get your local version of the bot (you w
 ```sh
 git clone https://github.com/amnezziaa/ChocoBot.git
 cd ./ChocoBot/
-npm install
+npm ci
 ```
 
 ### Create your discord bot
