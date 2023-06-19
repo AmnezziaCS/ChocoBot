@@ -28,7 +28,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("give")
     .setDescription(
-      "Permet de give des chococoins, cette commande est réservée à l'admin du bot Amnezzia#3632"
+      "Permet de donner des chococoins, cette commande est réservée à l'admin du bot @amnezzia"
     )
     .addIntegerOption((option) =>
       option
