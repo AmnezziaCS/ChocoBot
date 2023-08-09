@@ -21,10 +21,15 @@ module.exports = async (client, message) => {
     console.log(err);
   }
 
+  const discriminator =
+    message.author.discriminator === "0"
+      ? ""
+      : `#${message.author.discriminator}`;
+
   console.log(
-    `${new Date().toLocaleString()} ${message.author.username}#${
-      message.author.discriminator
-    } : ${message}`
+    `${new Date().toLocaleString()} ${
+      message.author.username
+    }${discriminator} : ${message}`
   );
 
   const args = message.content.slice(prefix.length).split(/ +/);

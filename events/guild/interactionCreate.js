@@ -24,10 +24,15 @@ module.exports = async (client, interaction) => {
     parameterBuffer += ` [${parameter.name}: ${parameter.value}]`;
   });
 
+  const discriminator =
+    interaction.user.discriminator === "0"
+      ? ""
+      : `#${interaction.user.discriminator}`;
+
   console.log(
-    `${new Date().toLocaleString()} ${interaction.user.username}#${
-      interaction.user.discriminator
-    } : /${interaction.commandName}${parameterBuffer}`
+    `${new Date().toLocaleString()} ${
+      interaction.user.username
+    }${discriminator} : /${interaction.commandName}${parameterBuffer}`
   );
 
   const command =
