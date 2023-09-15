@@ -1,8 +1,14 @@
-// all the node modules
+// All the node modules
 node_modules/
 
-// environment variables
+// Environment variables
 .env
 
-// json osu token file
-osuApi/token.json
+// JSON osu token file
+src/osuAPI/token.json
+
+// Other
+vscode/
+
+// Compiled files
+dist/
