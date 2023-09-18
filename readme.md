@@ -44,7 +44,7 @@ You will need these values :
 - `DISCORD_BOT_ID` : From the [discord application](https://discord.com/developers/applications) page.
 - `BOT_OWNER_ID` : The discord userId of your personal account. It can be obtained by right clicking on your profile with developer mode turned on.
 - `MONGODB_SRV` : Your MongoDB server token.
-- `OSU_API_ID` = Your osu API Id, can be found on [this page](https://osu.ppy.sh/home/account/edit#oauth).
+- `OSU_API_ID` : Your osu API Id, can be found on [this page](https://osu.ppy.sh/home/account/edit#oauth).
 - `OSU_API_SECRET` : Your osu API Token, can be found on [this page](https://osu.ppy.sh/home/account/edit#oauth).
 
 Once acquired, fill in the `.env.example` file and rename it to `.env`. As for the already given values, don't worry about them unless you really want to play around with the bot.
@@ -131,3 +131,6 @@ If you encounter any problems, make sure the `.env` file is filled with the righ
 - [DiscordJS documentation](https://discord.js.org/#/docs/discord.js/main/general/welcome)
 - [MongoDB documentation](https://www.mongodb.com/docs/)
 - [Osu API documentation](https://osu.ppy.sh/docs/index.html)
+- [Typescript documentation](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+- [Prettier ESLint documentation](https://prettier.io/docs/en/integrating-with-linters.html)
+- [Zod Documentation](https://zod.dev/https://zod.dev/)
