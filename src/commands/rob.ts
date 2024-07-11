@@ -4,8 +4,8 @@ import { ProfileData } from '../models/profileSchema';
 import { getProfileData } from '../profileDataMethods/getProfileData';
 import { updateUserChococoins } from '../profileDataMethods/updateUserChococoins';
 import { discordEmojiArray, embedColorCode } from '../utils/constants';
-import { getDiscordUserAvatarURL } from '../utils/getDiscordUserAvatarURL';
-import { getRandomInt } from '../utils/getRandomInt';
+import { getDiscordUserAvatarURL } from '../utils/utils';
+import { getRandomInt } from '../utils/utils';
 
 export const rob = {
   data: new SlashCommandBuilder()

@@ -3,7 +3,7 @@ import { CommandInteraction, MessageEmbed } from 'discord.js';
 import { ProfileData } from '../models/profileSchema';
 import { updateProfileDataDaily } from '../profileDataMethods/updateProfileDataDaily';
 import { embedColorCode } from '../utils/constants';
-import { getDiscordUserAvatarURL } from '../utils/getDiscordUserAvatarURL';
+import { getDiscordUserAvatarURL } from '../utils/utils';
 
 const dayInMilliseconds = 86400000;
 

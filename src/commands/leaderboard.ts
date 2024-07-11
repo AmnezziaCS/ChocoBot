@@ -1,7 +1,7 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { Client, CommandInteraction, MessageEmbed, User } from 'discord.js';
 import { ProfileData, ProfileModel } from '../models/profileSchema';
-import { getDiscordUserAvatarURL } from '../utils/getDiscordUserAvatarURL';
+import { getDiscordUserAvatarURL } from '../utils/utils';
 
 type rankingArray = {
   id: string;

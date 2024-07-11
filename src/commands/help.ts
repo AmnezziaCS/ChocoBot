@@ -1,7 +1,7 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, MessageEmbed } from 'discord.js';
 import { embedColorCode } from '../utils/constants';
-import { getDiscordUserAvatarURL } from '../utils/getDiscordUserAvatarURL';
+import { getDiscordUserAvatarURL } from '../utils/utils';
 const { paginationEmbed } = require('../utils/paginate');
 
 export const help = {

@@ -11,7 +11,7 @@ import { ServerModel, type ServerData } from '../models/serverSchema';
 import { getServerData } from '../serverDataMethods/getServerData';
 import { updateServerRecord } from '../serverDataMethods/updateServerRecord';
 import { discordEmojiArray, embedColorCode } from '../utils/constants';
-import { getDiscordUserAvatarURL } from '../utils/getDiscordUserAvatarURL';
+import { getDiscordUserAvatarURL } from '../utils/utils';
 
 type rankingArray = Array<{
   id: string;

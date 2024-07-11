@@ -3,8 +3,8 @@ import { CommandInteraction, MessageEmbed } from 'discord.js';
 import { ProfileData } from '../models/profileSchema';
 import { updateUserChococoins } from '../profileDataMethods/updateUserChococoins';
 import { embedColorCode } from '../utils/constants';
-import { getDiscordUserAvatarURL } from '../utils/getDiscordUserAvatarURL';
-import { getRandomInt } from '../utils/getRandomInt';
+import { getDiscordUserAvatarURL } from '../utils/utils';
+import { getRandomInt } from '../utils/utils';
 
 export const bet = {
   data: new SlashCommandBuilder()

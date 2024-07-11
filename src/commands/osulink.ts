@@ -3,7 +3,7 @@ import { CommandInteraction, MessageEmbed } from 'discord.js';
 import { getUser } from '../osuAPI/getUser';
 import { upsertOsuUserID } from '../profileDataMethods/upsertOsuUserID';
 import { embedColorCode } from '../utils/constants';
-import { getDiscordUserAvatarURL } from '../utils/getDiscordUserAvatarURL';
+import { getDiscordUserAvatarURL } from '../utils/utils';
 
 export const osulink = {
   data: new SlashCommandBuilder()

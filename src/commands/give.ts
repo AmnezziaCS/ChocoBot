@@ -4,7 +4,7 @@ import { ENV } from '../env';
 import { getProfileData } from '../profileDataMethods/getProfileData';
 import { updateUserChococoins } from '../profileDataMethods/updateUserChococoins';
 import { discordEmojiArray, embedColorCode } from '../utils/constants';
-import { getDiscordUserAvatarURL } from '../utils/getDiscordUserAvatarURL';
+import { getDiscordUserAvatarURL } from '../utils/utils';
 
 export const give = {
   data: new SlashCommandBuilder()

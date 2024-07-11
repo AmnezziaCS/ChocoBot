@@ -8,7 +8,7 @@ import {
   osuEmojiGradesArray,
   voyelArray
 } from '../utils/constants';
-import { getDiscordUserAvatarURL } from '../utils/getDiscordUserAvatarURL';
+import { getDiscordUserAvatarURL } from '../utils/utils';
 
 export const recent = {
   data: new SlashCommandBuilder()

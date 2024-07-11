@@ -1,7 +1,7 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction } from 'discord.js';
 import { discordEmojiArray } from '../utils/constants';
-import { getRandomInt } from '../utils/getRandomInt';
+import { getRandomInt } from '../utils/utils';
 
 const answersArray = [
   `Re-demander plus tard ${discordEmojiArray.PEPOG}`,
