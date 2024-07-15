@@ -1,4 +1,4 @@
-export const discordEmojiArray = {
+export const DISCORD_EMOTES_ARRAY = {
   HMMM: '<:hmmmm:898672241787674634>',
   PEPOG: '<:pepoG:948676211213758474>',
   WAITING: '<:waiting:918125217862287370>',
@@ -12,7 +12,7 @@ export const discordEmojiArray = {
   AGONY: '<:agony:918124977352499200>'
 } as Record<string, string>;
 
-export const osuEmojiGradesArray = {
+export const OSU_GRADES_EMOTES_ARRAY = {
   XH: '<:XH:971030365772845156>',
   X: '<:X_:971030365839970304>',
   SH: '<:SH:971030365810610226>',
@@ -23,6 +23,9 @@ export const osuEmojiGradesArray = {
   D: '<:D:971030365684793354>'
 } as Record<string, string>;
 
-export const voyelArray = ['a', 'e', 'i', 'o', 'u', 'y'];
+export const VOYEL_ARRAY = ['a', 'e', 'i', 'o', 'u', 'y'];
 
-export const embedColorCode = '#F8F70E';
+export const EMBED_COLOR_CODE = '#F8F70E';
+
+export const CHOCOBO_GIF_LINK =
+  'https://tenor.com/view/alpha-ffxiv-chocobo-alphabestboi-gif-19909966';

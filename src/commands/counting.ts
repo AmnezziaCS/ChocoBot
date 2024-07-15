@@ -10,7 +10,7 @@ import {
 import { ServerModel, type ServerData } from '../models/serverSchema';
 import { getServerData } from '../serverDataMethods/getServerData';
 import { updateServerRecord } from '../serverDataMethods/updateServerRecord';
-import { discordEmojiArray, embedColorCode } from '../utils/constants';
+import { DISCORD_EMOTES_ARRAY, EMBED_COLOR_CODE } from '../utils/constants';
 import { getDiscordUserAvatarURL } from '../utils/utils';
 
 type rankingArray = Array<{
@@ -61,7 +61,7 @@ export const counting = {
     }
 
     const countingStartsEmbed = new MessageEmbed()
-      .setColor(embedColorCode)
+      .setColor(EMBED_COLOR_CODE)
       .setTitle("L'événement de comptage a commencé !")
       .setDescription(
         "Il vous faut maintenant compter de 1 en 1 sans faire d'erreurs pour peut-être battre le record du serveur !"
@@ -86,7 +86,7 @@ export const counting = {
       if (countResult != currentCount) {
         countMessage.react('❌');
         interaction.channel?.send(
-          `> La chaîne a été cassée ${discordEmojiArray.SADGE}`
+          `> La chaîne a été cassée ${DISCORD_EMOTES_ARRAY.SADGE}`
         );
         collector.stop();
         return;
@@ -105,10 +105,10 @@ export const counting = {
     collector.on('end', async (): Promise<void> => {
       const accurateCurrentCount = currentCount - 1;
       const countingStartsEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setTitle("L'événement de comptage est maintenant terminé !")
         .setDescription(
-          `La chaîne a été cassée par une erreur ou par manque de temps ${discordEmojiArray.AGONY} !`
+          `La chaîne a été cassée par une erreur ou par manque de temps ${DISCORD_EMOTES_ARRAY.AGONY} !`
         )
         .setFields({
           name: 'Le record du serveur est :',
@@ -140,7 +140,7 @@ const helpEmbed = async (
   avatarUrl: string
 ): Promise<void> => {
   const helpEmbed = new MessageEmbed()
-    .setColor(embedColorCode)
+    .setColor(EMBED_COLOR_CODE)
     .setThumbnail(avatarUrl)
     .setTitle('Counting')
     .setDescription(
@@ -202,7 +202,7 @@ const lbEmbed = async (
   lbString += `${authorServerString}\`\`\``;
 
   const leaderboardEmbed = new MessageEmbed()
-    .setColor(embedColorCode)
+    .setColor(EMBED_COLOR_CODE)
     .setAuthor({
       name: 'Leaderboard Global du counting:',
       iconURL: avatarUrl

@@ -1,18 +1,18 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction } from 'discord.js';
-import { discordEmojiArray } from '../utils/constants';
+import { DISCORD_EMOTES_ARRAY } from '../utils/constants';
 import { getRandomInt } from '../utils/utils';
 
 const answersArray = [
-  `Re-demander plus tard ${discordEmojiArray.PEPOG}`,
-  `Certainement ${discordEmojiArray.WAITING}`,
-  `Absolument ${discordEmojiArray.DCOLON} !!!`,
-  `Je n'en suis pas certain ${discordEmojiArray.HMMM}`,
-  `Pas du tout ${discordEmojiArray.NOPERS}`,
-  `Je ne me prononcerais pas ${discordEmojiArray.YEP}`,
-  `Non ${discordEmojiArray.NOPERS}`,
-  `Concentrez vous et re-demandez ${discordEmojiArray.PEPOG}`,
-  `Oui ${discordEmojiArray.NODDERS}`
+  `Re-demander plus tard ${DISCORD_EMOTES_ARRAY.PEPOG}`,
+  `Certainement ${DISCORD_EMOTES_ARRAY.WAITING}`,
+  `Absolument ${DISCORD_EMOTES_ARRAY.DCOLON} !!!`,
+  `Je n'en suis pas certain ${DISCORD_EMOTES_ARRAY.HMMM}`,
+  `Pas du tout ${DISCORD_EMOTES_ARRAY.NOPERS}`,
+  `Je ne me prononcerais pas ${DISCORD_EMOTES_ARRAY.YEP}`,
+  `Non ${DISCORD_EMOTES_ARRAY.NOPERS}`,
+  `Concentrez vous et re-demandez ${DISCORD_EMOTES_ARRAY.PEPOG}`,
+  `Oui ${DISCORD_EMOTES_ARRAY.NODDERS}`
 ];
 
 export const chocoball = {

@@ -3,7 +3,7 @@ import { CommandInteraction, MessageEmbed, User } from 'discord.js';
 import { ENV } from '../env';
 import { getProfileData } from '../profileDataMethods/getProfileData';
 import { updateUserChococoins } from '../profileDataMethods/updateUserChococoins';
-import { discordEmojiArray, embedColorCode } from '../utils/constants';
+import { DISCORD_EMOTES_ARRAY, EMBED_COLOR_CODE } from '../utils/constants';
 import { getDiscordUserAvatarURL } from '../utils/utils';
 
 export const give = {
@@ -44,7 +44,7 @@ export const give = {
 
     if (interaction.user.id !== ENV.BOT_OWNER_ID) {
       const permissionsWrongEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setAuthor({
           name: `Vous ne pouvez pas utiliser cette commande`,
           iconURL: avatarUrl
@@ -73,7 +73,7 @@ export const give = {
     ); // We can type assert because commands can never be used in DMs
     if (!targetProfileData) {
       return interaction.reply({
-        content: `La personne que vous avez essayé de créditer n'a pas de compte, veuillez réessayer ${discordEmojiArray.WAITING}}`,
+        content: `La personne que vous avez essayé de créditer n'a pas de compte, veuillez réessayer ${DISCORD_EMOTES_ARRAY.WAITING}}`,
         ephemeral: true
       });
     }
@@ -86,7 +86,7 @@ export const give = {
     await updateUserChococoins(target.id, updateValue);
 
     const giveResponseEmbed = new MessageEmbed()
-      .setColor(embedColorCode)
+      .setColor(EMBED_COLOR_CODE)
       .setThumbnail(getDiscordUserAvatarURL(target))
       .setTitle(
         `Le compte de ${target.username} a bien été ${

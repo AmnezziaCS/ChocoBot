@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction } from 'discord.js';
-import { discordEmojiArray } from '../utils/constants';
+import { DISCORD_EMOTES_ARRAY } from '../utils/constants';
 
 export const counterratio = {
   data: new SlashCommandBuilder()
@@ -11,12 +11,12 @@ export const counterratio = {
   execute({ interaction }: { interaction: CommandInteraction }) {
     return interaction
       .reply({
-        content: `Je soutiens ${interaction.user.username} dans son contre ratio ${discordEmojiArray.MADGE}`,
+        content: `Je soutiens ${interaction.user.username} dans son contre ratio ${DISCORD_EMOTES_ARRAY.MADGE}`,
         fetchReply: true
       })
       .then((sentEmbed) => {
         // @ts-ignore - DiscordJS used version allows this
-        sentEmbed.react(discordEmojiArray.UPVOTE);
+        sentEmbed.react(DISCORD_EMOTES_ARRAY.UPVOTE);
       });
   }
 };

@@ -4,9 +4,9 @@ import { ProfileData } from '../models/profileSchema';
 import { getUser } from '../osuAPI/getUser';
 import { getUserRecentScore } from '../osuAPI/getUserRecentScore';
 import {
-  embedColorCode,
-  osuEmojiGradesArray,
-  voyelArray
+  EMBED_COLOR_CODE,
+  OSU_GRADES_EMOTES_ARRAY,
+  VOYEL_ARRAY
 } from '../utils/constants';
 import { getDiscordUserAvatarURL } from '../utils/utils';
 
@@ -37,7 +37,7 @@ export const recent = {
 
     if (!osuIdString) {
       const noOsuAccountEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setAuthor({
           name: "Vous n'avez pas lié de compte osu à votre Discord",
           iconURL: discordAvatarUrl
@@ -54,7 +54,7 @@ export const recent = {
     const osuUser = await getUser(osuIdString);
     if (!osuUser) {
       const wrongIDEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setAuthor({
           name: `Le joueur ${osuIdString} n'existe pas !`,
           iconURL: discordAvatarUrl
@@ -70,7 +70,7 @@ export const recent = {
 
     if (!userRecentScore) {
       const noScoresEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setAuthor({
           name: `Le joueur ${osuUser.username} n'a pas de scores récents !`,
           iconURL: `https://a.ppy.sh/${osuId}?.jpeg`,
@@ -88,7 +88,7 @@ export const recent = {
       .setColor('#F8F70E')
       .setAuthor({
         name: `Le score le plus récent ${
-          voyelArray.includes(userRecentScore.user.username[0].toLowerCase())
+          VOYEL_ARRAY.includes(userRecentScore.user.username[0].toLowerCase())
             ? "d'"
             : 'de '
         }${userRecentScore.user.username} !`,
@@ -100,7 +100,7 @@ export const recent = {
       )
       .setURL(`${userRecentScore.beatmap.url}`)
       .setDescription(
-        `${osuEmojiGradesArray[userRecentScore.rank]} **(${(
+        `${OSU_GRADES_EMOTES_ARRAY[userRecentScore.rank]} **(${(
           userRecentScore.accuracy * 100
         ).toPrecision(4)}%) +${modsBuffer}** *played* <t:${
           new Date(userRecentScore.created_at).getTime() / 1000

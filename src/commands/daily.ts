@@ -2,7 +2,7 @@ import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, MessageEmbed } from 'discord.js';
 import { ProfileData } from '../models/profileSchema';
 import { updateProfileDataDaily } from '../profileDataMethods/updateProfileDataDaily';
-import { embedColorCode } from '../utils/constants';
+import { EMBED_COLOR_CODE } from '../utils/constants';
 import { getDiscordUserAvatarURL } from '../utils/utils';
 
 const dayInMilliseconds = 86400000;
@@ -31,7 +31,7 @@ export const daily = {
       );
 
       const dailyFailedEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setThumbnail(avatarUrl)
         .setTitle(`Votre daily n'est pas disponible pour le moment !`)
         .setFields({
@@ -44,7 +44,7 @@ export const daily = {
     await updateProfileDataDaily(interaction.user.id);
 
     const dailySuccessfullEmbed = new MessageEmbed()
-      .setColor(embedColorCode)
+      .setColor(EMBED_COLOR_CODE)
       .setThumbnail(avatarUrl)
       .setTitle(`Votre compte a bien été crédité de 2000 ChocoCoins`)
       .setFields({

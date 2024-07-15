@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction } from 'discord.js';
+import { CHOCOBO_GIF_LINK } from '../utils/constants';
 
 export const chocobo = {
   data: new SlashCommandBuilder()
@@ -8,8 +9,6 @@ export const chocobo = {
     .setDMPermission(false),
   aliases: ['hocobo'],
   execute({ interaction }: { interaction: CommandInteraction }) {
-    return interaction.reply(
-      'https://tenor.com/view/alpha-ffxiv-chocobo-alphabestboi-gif-19909966'
-    );
+    return interaction.reply(CHOCOBO_GIF_LINK);
   }
 };

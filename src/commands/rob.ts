@@ -3,7 +3,7 @@ import { CommandInteraction, MessageEmbed, User } from 'discord.js';
 import { ProfileData } from '../models/profileSchema';
 import { getProfileData } from '../profileDataMethods/getProfileData';
 import { updateUserChococoins } from '../profileDataMethods/updateUserChococoins';
-import { discordEmojiArray, embedColorCode } from '../utils/constants';
+import { DISCORD_EMOTES_ARRAY, EMBED_COLOR_CODE } from '../utils/constants';
 import { getDiscordUserAvatarURL } from '../utils/utils';
 import { getRandomInt } from '../utils/utils';
 
@@ -49,13 +49,13 @@ export const rob = {
     ); // We can type assert because commands can never be used in DMs
     if (!targetProfileData) {
       return interaction.reply({
-        content: `La personne que vous avez essayé de voler n'a pas de compte, veuillez réessayer ${discordEmojiArray.WAITING}}`,
+        content: `La personne que vous avez essayé de voler n'a pas de compte, veuillez réessayer ${DISCORD_EMOTES_ARRAY.WAITING}}`,
         ephemeral: true
       });
     }
     if (profileData.chococoins < 1000 || targetProfileData.chococoins < 1000) {
       const notEnoughMoneyEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setAuthor({
           name: `Vous ou la personne que vous avez essayé de rob possède moins de 1000 ChocoCoins, par conséquent, vous ne pouvez utiliser cette commande !`,
           iconURL: avatarUrl
@@ -93,7 +93,7 @@ export const rob = {
     });
 
     const robResultEmbed = new MessageEmbed()
-      .setColor(embedColorCode)
+      .setColor(EMBED_COLOR_CODE)
       .setThumbnail(avatarUrl)
       .setTitle(resultEmbedTitle)
       .setFields({

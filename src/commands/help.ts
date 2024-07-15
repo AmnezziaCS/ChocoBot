@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, MessageEmbed } from 'discord.js';
-import { embedColorCode } from '../utils/constants';
+import { EMBED_COLOR_CODE } from '../utils/constants';
 import { getDiscordUserAvatarURL } from '../utils/utils';
 const { paginationEmbed } = require('../utils/paginate');
 
@@ -14,7 +14,7 @@ export const help = {
     const avatarUrl = getDiscordUserAvatarURL(interaction.user);
 
     const help1 = new MessageEmbed()
-      .setColor(embedColorCode)
+      .setColor(EMBED_COLOR_CODE)
       .setAuthor({
         name: `Commandes Basiques`,
         iconURL: avatarUrl
@@ -40,7 +40,7 @@ export const help = {
         }
       );
     const help2 = new MessageEmbed()
-      .setColor(embedColorCode)
+      .setColor(EMBED_COLOR_CODE)
       .setAuthor({
         name: `Commandes Banquières`,
         iconURL: avatarUrl
@@ -69,7 +69,7 @@ export const help = {
         }
       );
     const help3 = new MessageEmbed()
-      .setColor(embedColorCode)
+      .setColor(EMBED_COLOR_CODE)
       .setAuthor({
         name: `Commandes Osu!`,
         iconURL: avatarUrl

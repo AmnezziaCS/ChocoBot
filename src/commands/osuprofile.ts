@@ -3,9 +3,9 @@ import { CommandInteraction, MessageEmbed } from 'discord.js';
 import { ProfileData } from '../models/profileSchema';
 import { getUser } from '../osuAPI/getUser';
 import {
-  embedColorCode,
-  osuEmojiGradesArray,
-  voyelArray
+  EMBED_COLOR_CODE,
+  OSU_GRADES_EMOTES_ARRAY,
+  VOYEL_ARRAY
 } from '../utils/constants';
 import { getDiscordUserAvatarURL } from '../utils/utils';
 
@@ -36,7 +36,7 @@ export const osuprofile = {
 
     if (!osuId) {
       const noOsuAccountEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setAuthor({
           name: "Vous n'avez pas lié de compte osu à votre Discord",
           iconURL: discordAvatarUrl
@@ -53,7 +53,7 @@ export const osuprofile = {
     const osuUser = await getUser(osuId);
     if (!osuUser) {
       const wrongIDEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setAuthor({
           name: `Le joueur ${osuId} n'existe pas !`,
           iconURL: discordAvatarUrl
@@ -62,10 +62,10 @@ export const osuprofile = {
     }
 
     const osuProfileEmbed = new MessageEmbed()
-      .setColor(embedColorCode)
+      .setColor(EMBED_COLOR_CODE)
       .setAuthor({
         name: `Voici le profil osu ${
-          voyelArray.includes(osuUser.username[0].toLowerCase()) ? "d'" : 'de '
+          VOYEL_ARRAY.includes(osuUser.username[0].toLowerCase()) ? "d'" : 'de '
         }${osuUser.username} !`,
         iconURL: `https://flagpedia.net/data/flags/icon/120x90/${osuUser.country_code.toLowerCase()}.webp`,
         url: `https://osu.ppy.sh/users/${osuUser.id}`
@@ -92,23 +92,23 @@ export const osuprofile = {
         )}%\n• **Level:** ${osuUser.statistics.level.current}.${
           osuUser.statistics.level.progress
         }\n• **Scores: ${
-          osuEmojiGradesArray.XH
+          OSU_GRADES_EMOTES_ARRAY.XH
         } ${osuUser.statistics.grade_counts.ssh
           .toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ${
-          osuEmojiGradesArray.SH
+          OSU_GRADES_EMOTES_ARRAY.SH
         } ${osuUser.statistics.grade_counts.sh
           .toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ${
-          osuEmojiGradesArray.X
+          OSU_GRADES_EMOTES_ARRAY.X
         } ${osuUser.statistics.grade_counts.ss
           .toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ${
-          osuEmojiGradesArray.S
+          OSU_GRADES_EMOTES_ARRAY.S
         } ${osuUser.statistics.grade_counts.s
           .toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ${
-          osuEmojiGradesArray.A
+          OSU_GRADES_EMOTES_ARRAY.A
         } ${osuUser.statistics.grade_counts.a
           .toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}**`

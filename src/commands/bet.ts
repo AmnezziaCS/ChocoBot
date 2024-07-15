@@ -2,7 +2,7 @@ import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, MessageEmbed } from 'discord.js';
 import { ProfileData } from '../models/profileSchema';
 import { updateUserChococoins } from '../profileDataMethods/updateUserChococoins';
-import { embedColorCode } from '../utils/constants';
+import { EMBED_COLOR_CODE } from '../utils/constants';
 import { getDiscordUserAvatarURL } from '../utils/utils';
 import { getRandomInt } from '../utils/utils';
 
@@ -31,7 +31,7 @@ export const bet = {
 
     if (betValue <= 0) {
       const negativeBetEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setAuthor({
           name: 'Vous avez voulu bet une valeur négative de chococoins !',
           iconURL: avatarUrl
@@ -43,7 +43,7 @@ export const bet = {
     }
     if (profileData.chococoins < betValue) {
       const notEnoughCoinsEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setAuthor({
           name: 'Votre solde de ChocoCoins est insuffisant',
           iconURL: avatarUrl
@@ -71,7 +71,7 @@ export const bet = {
         ? `Votre compte a été crédité de ${betValue} ChocoCoins, votre nouveau montant de ChocoCoins est : `
         : `Votre compte à été débité de ${betValue} ChocoCoins, votre nouveau montant de ChocoCoins est : `;
     const betResultEmbed = new MessageEmbed()
-      .setColor(embedColorCode)
+      .setColor(EMBED_COLOR_CODE)
       .setThumbnail(avatarUrl)
       .setTitle(betResultEmbedTitle)
       .setFields({

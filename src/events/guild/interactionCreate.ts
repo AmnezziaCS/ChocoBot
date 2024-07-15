@@ -1,6 +1,6 @@
 import { Client, Interaction } from 'discord.js';
 import { getProfileData } from '../../profileDataMethods/getProfileData';
-import { discordEmojiArray } from '../../utils/constants';
+import { DISCORD_EMOTES_ARRAY } from '../../utils/constants';
 
 export const interactionCreate = async (
   client: Client,
@@ -22,7 +22,7 @@ export const interactionCreate = async (
 
   if (!command) {
     return interaction.reply({
-      content: `Quelque chose n'a pas tourné rond, bizarre. Soit votre commande n'existe pas, soit elle est erronée ${discordEmojiArray.HMMM}`,
+      content: `Quelque chose n'a pas tourné rond, bizarre. Soit votre commande n'existe pas, soit elle est erronée ${DISCORD_EMOTES_ARRAY.HMMM}`,
       ephemeral: true
     });
   }
@@ -47,14 +47,14 @@ export const interactionCreate = async (
   try {
     if (!profileData) {
       return interaction.reply({
-        content: `Quelque chose n'a pas tourné rond, bizarre. Vos statistiques n'ont pas pu être récupérées ${discordEmojiArray.WAITING}`,
+        content: `Quelque chose n'a pas tourné rond, bizarre. Vos statistiques n'ont pas pu être récupérées ${DISCORD_EMOTES_ARRAY.WAITING}`,
         ephemeral: true
       });
     }
     await command.execute({ client, interaction, profileData });
   } catch (err) {
     interaction.reply({
-      content: `Quelque chose n'a pas tourné rond, bizarre. Soit votre commande n'existe pas, soit elle est erronée ${discordEmojiArray.HMMM}}`,
+      content: `Quelque chose n'a pas tourné rond, bizarre. Soit votre commande n'existe pas, soit elle est erronée ${DISCORD_EMOTES_ARRAY.HMMM}}`,
       ephemeral: true
     });
     console.log('Caught error:', err);

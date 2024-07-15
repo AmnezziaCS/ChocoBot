@@ -2,7 +2,7 @@ import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, MessageEmbed } from 'discord.js';
 import { getUser } from '../osuAPI/getUser';
 import { upsertOsuUserID } from '../profileDataMethods/upsertOsuUserID';
-import { embedColorCode } from '../utils/constants';
+import { EMBED_COLOR_CODE } from '../utils/constants';
 import { getDiscordUserAvatarURL } from '../utils/utils';
 
 export const osulink = {
@@ -24,7 +24,7 @@ export const osulink = {
 
     if (!osuUser) {
       const wrongIDEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setAuthor({
           name: `Votre ID ${osuUserID} n'est pas valable, merci de choisir un ID correct !`,
           iconURL: discordAvatarUrl
@@ -35,7 +35,7 @@ export const osulink = {
     upsertOsuUserID(interaction.user.id, osuUserID.toString());
 
     const osuLinkFinalResponseEmbed = new MessageEmbed()
-      .setColor(embedColorCode)
+      .setColor(EMBED_COLOR_CODE)
       .setAuthor({
         name: `Le compte osu ${osuUser.username} a bien été lié à votre Discord !`,
         iconURL: `${osuUser.avatar_url}.jpeg`

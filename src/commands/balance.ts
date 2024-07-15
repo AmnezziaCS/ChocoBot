@@ -2,7 +2,7 @@ import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, MessageEmbed } from 'discord.js';
 import { ProfileData } from '../models/profileSchema';
 import { getProfileData } from '../profileDataMethods/getProfileData';
-import { embedColorCode } from '../utils/constants';
+import { EMBED_COLOR_CODE } from '../utils/constants';
 import { getDiscordUserAvatarURL } from '../utils/utils';
 
 export const balance = {
@@ -32,7 +32,7 @@ export const balance = {
 
     if (!target) {
       const authorBalanceEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setThumbnail(avatarUrl)
         .setTitle(`Les thunasses de ${interaction.user.username}`)
         .setFields({
@@ -43,20 +43,23 @@ export const balance = {
     }
     if (target.bot) {
       const botTargetEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setAuthor({
           name: `Vous ne pouvez pas utiliser cette commande sur les bots !`,
           iconURL: avatarUrl
         });
       return interaction.reply({ embeds: [botTargetEmbed] });
     }
+
     const targetProfileData = await getProfileData(
       target.id,
       interaction.guildId as string
-    ); // We can type assert because commands can never be used in DMs
+      // We can type assert because commands can never be used in DMs
+    );
+
     if (!targetProfileData) {
       const profileCreatedEmbed = new MessageEmbed()
-        .setColor(embedColorCode)
+        .setColor(EMBED_COLOR_CODE)
         .setAuthor({
           name: `Le profil de ${target.username} a été créé`,
           iconURL: getDiscordUserAvatarURL(target)
@@ -67,7 +70,7 @@ export const balance = {
     }
 
     const targetBalanceEmbed = new MessageEmbed()
-      .setColor(embedColorCode)
+      .setColor(EMBED_COLOR_CODE)
       .setThumbnail(getDiscordUserAvatarURL(target))
       .setTitle(`Les thunasses de ${target.username}`)
       .setFields({
