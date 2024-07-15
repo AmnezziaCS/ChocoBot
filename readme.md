@@ -1,10 +1,13 @@
 # ChocoBot 🍫
 
-A `Work in progress` Osu related Discord bot.
+An economy/osu! centered discord bot.
 
 ## Resources
 
 - [Bot invitation link](https://discord.com/api/oauth2/authorize?client_id=893457417675886602&permissions=534723815488&scope=bot)
+- [DiscordJS documentation](https://discord.js.org/#/docs/main/stable/general/welcome)
+- [MongoDB documentation](https://www.mongodb.com/docs/)
+- [Osu API documentation](https://osu.ppy.sh/docs/index.html)
 
 ## Setup
 
