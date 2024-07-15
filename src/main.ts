@@ -17,4 +17,5 @@ Object.values(handlers).forEach((handler) => handler(client));
 connectToDB();
 client.login(ENV.DISCORD_TOKEN);
 
-process.on('unhandledRejection', (err) => console.error(err)); // Will be deprecated in the future https://github.com/amnezziaa/ChocoBot/issues/34
+// Will be deprecated in the future https://github.com/amnezziaa/ChocoBot/issues/34
+process.on('unhandledRejection', (err) => console.error(err));
