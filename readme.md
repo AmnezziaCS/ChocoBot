@@ -14,7 +14,7 @@ An economy/osu! centered discord bot.
 Firstly, you will have to get your local version of the bot:
 
 ```sh
-git clone https://github.com/amnezziaa/ChocoBot.git
+git clone https://github.com/AmnezziaCS/ChocoBot.git
 cd ./ChocoBot/
 npm ci
 ```
