@@ -74,44 +74,33 @@ export const osuprofile = {
       .setDescription(
         `• **Rank:** ${
           osuUser.statistics.global_rank
-            ? '#' +
-              osuUser.statistics.global_rank
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ',') +
-              ` (${osuUser.country_code}#${osuUser.statistics.rank.country
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')})`
+            ? `#${standardizeNumber(osuUser.statistics.global_rank, ',')} (${
+                osuUser.country_code
+              }#${standardizeNumber(osuUser.statistics.rank.country, ',')})`
             : ' `unranked`'
-        }\n• **Ranked score:** ${osuUser.statistics.ranked_score
-          .toString()
-          .replace(
-            /\B(?=(\d{3})+(?!\d))/g,
-            ' '
-          )}\n• **Accuracy:** ${osuUser.statistics.hit_accuracy.toPrecision(
+        }\n• **Ranked score:** ${standardizeNumber(
+          osuUser.statistics.ranked_score,
+          ' '
+        )}\n• **Accuracy:** ${osuUser.statistics.hit_accuracy.toPrecision(
           4
         )}%\n• **Level:** ${osuUser.statistics.level.current}.${
           osuUser.statistics.level.progress
-        }\n• **Scores: ${
-          OSU_GRADES_EMOTES_ARRAY.XH
-        } ${osuUser.statistics.grade_counts.ssh
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ${
-          OSU_GRADES_EMOTES_ARRAY.SH
-        } ${osuUser.statistics.grade_counts.sh
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ${
-          OSU_GRADES_EMOTES_ARRAY.X
-        } ${osuUser.statistics.grade_counts.ss
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ${
-          OSU_GRADES_EMOTES_ARRAY.S
-        } ${osuUser.statistics.grade_counts.s
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ${
-          OSU_GRADES_EMOTES_ARRAY.A
-        } ${osuUser.statistics.grade_counts.a
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}**`
+        }\n• **Scores: ${OSU_GRADES_EMOTES_ARRAY.XH}${standardizeNumber(
+          osuUser.statistics.grade_counts.ssh,
+          ','
+        )} ${OSU_GRADES_EMOTES_ARRAY.SH}${standardizeNumber(
+          osuUser.statistics.grade_counts.sh,
+          ','
+        )} ${OSU_GRADES_EMOTES_ARRAY.X}${standardizeNumber(
+          osuUser.statistics.grade_counts.ss,
+          ','
+        )} ${OSU_GRADES_EMOTES_ARRAY.S}${standardizeNumber(
+          osuUser.statistics.grade_counts.s,
+          ','
+        )} ${OSU_GRADES_EMOTES_ARRAY.A}${standardizeNumber(
+          osuUser.statistics.grade_counts.a,
+          ','
+        )}**`
       );
     return interaction.reply({ embeds: [osuProfileEmbed] });
   }
@@ -121,4 +110,8 @@ const retrieveUserOsuId = async (
   profileData: ProfileData
 ): Promise<string | null> => {
   return profileData?.osuUserID ?? null;
+};
+
+const standardizeNumber = (number: number, replacement: string): string => {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, replacement);
 };
